@@ -6,346 +6,324 @@
     <title>Welstand Rehab Services - Quality Occupational Therapy & Physiotherapy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-        :root {
-            /* Colors */
-            --primary-color: #418f93;
-            --primary-dark-color: #367c80;
-            --text-dark: #333;
-            --text-medium: #666;
-            --text-light: #ccc;
-            --text-faded: rgba(255, 255, 255, 0.9);
-            --bg-light: #f8fafc;
-            --bg-white: #ffffff;
-            --bg-dark: #1a1a1a;
-            --border-light: rgba(65, 143, 147, 0.1);
-            --border-white-light: rgba(255, 255, 255, 0.2);
+:root {
+  /* Colors */
+  --primary-color: #418f93;
+  --primary-dark-color: #367c80;
+  --text-dark: #333;
+  --text-medium: #666;
+  --text-light: #ccc;
+  --text-faded: rgba(255, 255, 255, 0.9);
+  --bg-light: #f8fafc;
+  --bg-white: #ffffff;
+  --bg-dark: #1a1a1a;
+  --border-light: rgba(65, 143, 147, 0.1);
+  --border-white-light: rgba(255, 255, 255, 0.2);
 
-            /* Spacing */
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 3rem;
-            --spacing-xxl: 4rem;
-            --spacing-section: 5rem;
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-xxl: 4rem;
+  --spacing-section: 5rem;
 
-            /* Font Sizes */
-            --font-size-base: 1rem;
-            --font-size-sm: 0.9rem;
-            --font-size-md: 1.1rem;
-            --font-size-lg: 1.2rem;
-            --font-size-xl: 1.5rem;
-            --font-size-h3: 1.3rem;
-            --font-size-h2: 2.5rem;
-            --font-size-h1: 3.5rem;
+  /* Font Sizes */
+  --font-size-base: 1rem;
+  --font-size-sm: 0.9rem;
+  --font-size-md: 1.1rem;
+  --font-size-lg: 1.2rem;
+  --font-size-xl: 1.5rem;
+  --font-size-h3: 1.3rem;
+  --font-size-h2: 2.5rem;
+  --font-size-h1: 3.5rem;
 
-            /* Border Radii */
-            --border-radius-sm: 8px;
-            --border-radius-md: 15px;
-            --border-radius-lg: 20px;
-            --border-radius-pill: 50px;
+  /* Border Radius */
+  --border-radius-sm: 8px;
+  --border-radius-md: 15px;
+  --border-radius-lg: 20px;
+  --border-radius-pill: 50px;
 
-            /* Shadows */
-            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
-            --shadow-primary-sm: 0 4px 15px rgba(65, 143, 147, 0.3);
-            --shadow-primary-md: 0 5px 15px rgba(65, 143, 147, 0.3);
-            --shadow-primary-lg: 0 8px 25px rgba(65, 143, 147, 0.4);
+  /* Shadows */
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+  --shadow-primary-sm: 0 4px 15px rgba(65, 143, 147, 0.3);
+  --shadow-primary-md: 0 5px 15px rgba(65, 143, 147, 0.3);
+  --shadow-primary-lg: 0 8px 25px rgba(65, 143, 147, 0.4);
 
-            /* Transitions */
-            --transition-speed: 0.3s;
-            --transition-ease: ease;
-        }
+  /* Transitions */
+  --transition-speed: 0.3s;
+  --transition-ease: ease;
+}
 
+/* Base */
 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
+html {
+  scroll-behavior: smooth;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-lg);
-        }
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
 
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: var(--spacing-sm) 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
+/* Header */
+header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: var(--spacing-sm) 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            font-size: var(--font-size-xl);
-            font-weight: bold;
-            color: var(--primary-color);
-            z-index: 1001;
-        }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
 
-        .logo i {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-        }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+  color: var(--primary-color);
+  z-index: 1001;
+}
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: var(--spacing-lg);
-            transition: all var(--transition-speed) var(--transition-ease);
-        }
+.logo i {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
 
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            position: relative;
-            transition: color var(--transition-speed) var(--transition-ease);
-        }
+/* Nav Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-lg);
+  transition: all var(--transition-speed) var(--transition-ease);
+}
 
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
+.nav-links a {
+  color: var(--text-dark);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition-speed) var(--transition-ease);
+}
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width var(--transition-speed) var(--transition-ease);
-        }
+.nav-links a:hover {
+  color: var(--primary-color);
+}
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width var(--transition-speed) var(--transition-ease);
+}
 
-        .contact-btn {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark-color));
-            color: var(--bg-white);
-            padding: 0.7rem var(--spacing-md);
-            border-radius: var(--border-radius-pill);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all var(--transition-speed);
-            box-shadow: var(--shadow-primary-sm);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            z-index: 1001;
-        }
+.nav-links a:hover::after {
+  width: 100%;
+}
 
-        .contact-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-primary-lg);
-        }
+/* Contact Button */
+.contact-btn {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark-color));
+  color: var(--bg-white);
+  padding: 0.7rem var(--spacing-md);
+  border-radius: var(--border-radius-pill);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all var(--transition-speed);
+  box-shadow: var(--shadow-primary-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  z-index: 1001;
+}
 
-        /* Mobile Menu Toggle */
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1001;
-            padding: 0.5rem;
-            background: rgba(59, 130, 246, 0.1);
-            border: 2px solid var(--primary-color);
-            border-radius: 8px;
-            width: 50px;
-            height: 50px;
-            justify-content: center;
-            align-items: center;
-            transition: all var(--transition-speed) var(--transition-ease);
-        }
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-primary-lg);
+}
 
-        .mobile-menu-toggle:hover {
-            background: rgba(59, 130, 246, 0.2);
-            transform: scale(1.05);
-        }
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 1001;
+  transition: all var(--transition-speed) var(--transition-ease);
+}
 
-        .mobile-menu-toggle span {
-            display: block;
-            width: 28px;
-            height: 3px;
-            background: var(--primary-color);
-            margin: 3px 0;
-            transition: all var(--transition-speed) var(--transition-ease);
-            transform-origin: center;
-            border-radius: 2px;
-        }
+.mobile-menu-toggle:hover {
+  background: rgba(59, 130, 246, 0.2);
+  transform: scale(1.05);
+}
 
-        .mobile-menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
+.mobile-menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: var(--primary-color);
+  margin: 3px 0;
+  transition: all var(--transition-speed) var(--transition-ease);
+  transform-origin: center;
+  border-radius: 2px;
+}
 
-        .mobile-menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
 
-        .mobile-menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
 
-        /* Desktop Navigation */
-        .nav-desktop {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-lg);
-        }
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
 
-        /* Mobile Navigation */
-        .nav-mobile {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: var(--spacing-lg);
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition-speed) var(--transition-ease);
-        }
+/* Desktop Navigation Only */
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
 
-        .nav-mobile.active {
-            display: flex;
-            opacity: 1;
-            visibility: visible;
-        }
+/* Mobile Nav */
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-lg);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-speed) var(--transition-ease);
+}
 
-        .nav-mobile .nav-links {
-            flex-direction: column;
-            gap: var(--spacing-lg);
-            text-align: center;
-        }
+.nav-mobile.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
 
-        .nav-mobile .nav-links a {
-            font-size: 1.5rem;
-            font-weight: 500;
-        }
+.nav-mobile .nav-links {
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  text-align: center;
+}
 
-        .nav-mobile .contact-btn {
-            margin-top: var(--spacing-md);
-            font-size: 1.2rem;
-            padding: 1rem var(--spacing-lg);
-        }
+.nav-mobile .nav-links a {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
 
-        /* Demo Content */
-        .demo-content {
-            margin-top: 80px;
-            padding: var(--spacing-lg);
-            min-height: 100vh;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        }
+.nav-mobile .contact-btn {
+  margin-top: var(--spacing-md);
+  font-size: 1.2rem;
+  padding: 1rem var(--spacing-lg);
+}
 
-        .demo-section {
-            background: var(--bg-white);
-            padding: var(--spacing-lg);
-            margin: var(--spacing-lg) 0;
-            border-radius: 15px;
-            box-shadow: var(--shadow-sm);
-        }
+/* Prevent Body Scroll */
+body.menu-open {
+  overflow: hidden;
+}
 
-        /* Media Queries */
-        @media (max-width: 992px) {
-            .container {
-                padding: 0 var(--spacing-sm);
-            }
+/* Responsive */
+@media (max-width: 992px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
 
-            .mobile-menu-toggle {
-                display: flex;
-            }
+  .nav-desktop {
+    display: none;
+  }
 
-            .nav-desktop {
-                display: none;
-            }
+  .mobile-menu-toggle {
+    display: flex;
+  }
 
-            .logo {
-                font-size: 1.3rem;
-            }
+  .logo {
+    font-size: 1.3rem;
+  }
 
-            .logo i {
-                font-size: 1.5rem;
-            }
+  .logo i {
+    font-size: 1.5rem;
+  }
 
-            header {
-                padding: 0.8rem 0;
-            }
+  header {
+    padding: 0.8rem 0;
+  }
+}
 
-            .demo-content {
-                margin-top: 70px;
-                padding: var(--spacing-sm);
-            }
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-xs);
+  }
 
-            .demo-section {
-                padding: var(--spacing-md);
-                margin: var(--spacing-md) 0;
-            }
-        }
+  .logo {
+    font-size: 1.2rem;
+  }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 var(--spacing-xs);
-            }
+  .logo i {
+    font-size: 1.3rem;
+  }
 
-            .logo {
-                font-size: 1.2rem;
-            }
+  .nav-mobile .nav-links a {
+    font-size: 1.3rem;
+  }
 
-            .logo i {
-                font-size: 1.3rem;
-            }
+  .nav-mobile .contact-btn {
+    font-size: 1.1rem;
+    padding: 0.9rem var(--spacing-md);
+  }
+}
 
-            .nav-mobile .nav-links a {
-                font-size: 1.3rem;
-            }
-
-            .nav-mobile .contact-btn {
-                font-size: 1.1rem;
-                padding: 0.9rem var(--spacing-md);
-            }
-        }
-
-        /* Smooth scrolling for anchor links */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Prevent body scroll when mobile menu is open */
-        body.menu-open {
-            overflow: hidden;
-        }
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, rgba(65, 143, 147, 0.9), rgba(65, 143, 147, 0.7)),
@@ -1547,24 +1525,50 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <i class="fas fa-heartbeat"></i>
-                Welstand
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="process.html">Process</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <a href="contact.html" class="contact-btn">
-                <i class="fas fa-phone"></i> Contact Us
-            </a>
-        </nav>
-    </header>
+<header>
+  <nav class="container">
+    <div class="logo">
+      <i class="fas fa-heartbeat"></i>
+      Welstand
+    </div>
+
+    <!-- Desktop Nav -->
+    <ul class="nav-links nav-desktop">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <a href="contact.html" class="contact-btn nav-desktop">
+      <i class="fas fa-phone"></i> Contact Us
+    </a>
+
+    <!-- ✅ Mobile Toggle -->
+    <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ✅ Mobile Menu -->
+<nav id="mobileNav" class="nav-mobile">
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="contact-btn">
+    <i class="fas fa-phone"></i> Contact Us
+  </a>
+</nav>
+
+
 
     <section class="hero" id="home">
         <div class="container">
@@ -1926,144 +1930,190 @@
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  const body = document.body;
 
-        // Enhanced header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.backdropFilter = 'blur(15px)';
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            }
-        });
+  // ✅ Mobile menu toggle
+  if (mobileMenuToggle && mobileNav) {
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      body.classList.toggle('menu-open');
+    });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    // ✅ Close on link click inside mobile nav
+    const mobileLinks = mobileNav.querySelectorAll('.nav-links a, .contact-btn');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        body.classList.remove('menu-open');
+      });
+    });
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Apply animation styles
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    
-                    // Add staggered animation for service cards if applicable
-                    if (entry.target.classList.contains('service-card')) {
-                        const cards = document.querySelectorAll('.services-grid .service-card'); // Target only service cards in the grid
-                        cards.forEach((card, index) => {
-                            // Only animate if the card is within the view of this observer instance
-                            if (card.getBoundingClientRect().top < window.innerHeight && card.getBoundingClientRect().bottom > 0) {
-                                setTimeout(() => {
-                                    card.style.opacity = '1';
-                                    card.style.transform = 'translateY(0)';
-                                }, index * 100);
-                            }
-                        });
-                    }
-                    // For headings and paragraphs in the contact section
-                    if (entry.target.classList.contains('contact-content')) {
-                        entry.target.querySelector('h2').style.opacity = '1';
-                        entry.target.querySelector('h2').style.transform = 'translateY(0)';
-                        entry.target.querySelector('p').style.opacity = '1';
-                        entry.target.querySelector('p').style.transform = 'translateY(0)';
-                    }
-                }
-            });
-        }, observerOptions);
+    // ✅ Close if clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+        if (mobileNav.classList.contains('active')) {
+          mobileMenuToggle.classList.remove('active');
+          mobileNav.classList.remove('active');
+          body.classList.remove('menu-open');
+        }
+      }
+    });
 
-        // Observe all animated elements (added initial styles in CSS to ensure they start hidden)
-        document.querySelectorAll('.service-card, .process-step, .feature-item, .contact-item, .contact h2, .contact p').forEach(element => {
-            observer.observe(element);
-        });
+    // ✅ Reset on window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 992) {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        body.classList.remove('menu-open');
+      }
+    });
+  }
 
-        // Counter animation for stats
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                // Ensure the counter is reset for re-animation if needed, or only animate once
-                if (counter.dataset.animated) return; // Prevent re-animation
-                
-                const targetText = counter.textContent;
-                const target = parseInt(targetText);
-                const isPercentage = targetText.includes('%');
-                const isPlus = targetText.includes('+');
+  // ✅ Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 
-                const duration = 1500; // milliseconds
-                let start = null;
+  // ✅ Enhanced header scroll styling
+  const header = document.querySelector('header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.98)';
+        header.style.backdropFilter = 'blur(15px)';
+        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+      } else {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.backdropFilter = 'blur(10px)';
+        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      }
+    });
+  }
 
-                function step(timestamp) {
-                    if (!start) start = timestamp;
-                    const progress = timestamp - start;
-                    const percentage = Math.min(progress / duration, 1);
-                    const current = Math.floor(percentage * target);
+  // ✅ Scroll-in animations with Intersection Observer
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
 
-                    counter.textContent = current + (isPercentage ? '%' : (isPlus ? '+' : ''));
-
-                    if (percentage < 1) {
-                        requestAnimationFrame(step);
-                    } else {
-                        counter.textContent = targetText; // Ensure final exact value
-                        counter.dataset.animated = 'true'; // Mark as animated
-                    }
-                }
-                requestAnimationFrame(step);
-            });
+        // Animate service cards
+        if (el.classList.contains('services-grid')) {
+          const cards = el.querySelectorAll('.service-card');
+          cards.forEach((card, index) => {
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, index * 100);
+          });
         }
 
-        // Trigger counter animation when hero section is visible
-        const heroObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    heroObserver.unobserve(entry.target); // Stop observing once animated
-                }
-            });
-        }, { threshold: 0.5 }); // More precise threshold for hero stats
+        // Animate contact content
+        if (el.classList.contains('contact-content')) {
+          const heading = el.querySelector('h2');
+          const paragraph = el.querySelector('p');
+          if (heading) {
+            heading.style.opacity = '1';
+            heading.style.transform = 'translateY(0)';
+          }
+          if (paragraph) {
+            paragraph.style.opacity = '1';
+            paragraph.style.transform = 'translateY(0)';
+          }
+        }
 
-        heroObserver.observe(document.querySelector('.hero'));
+        obs.unobserve(el);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
 
-        // Service card hover effect enhancement
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
+  // Observe elements for animation
+  document.querySelectorAll(
+    '.service-card, .process-step, .feature-item, .contact-item, .contact h2, .contact p, .services-grid, .contact-content'
+  ).forEach(el => observer.observe(el));
 
-        // Loading animation for body
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '1';
-            document.body.style.transform = 'translateY(0)';
-        });
+  // ✅ Counter animation
+  function animateCounters() {
+    document.querySelectorAll('.stat-number').forEach(counter => {
+      if (counter.dataset.animated) return;
 
-        // Initial body styling for loading animation (applied directly to body)
-        document.body.style.opacity = '0';
-        document.body.style.transform = 'translateY(20px)';
-        document.body.style.transition = 'all 0.8s ease';
-    </script>
+      const targetText = counter.textContent;
+      const target = parseFloat(targetText);
+      const isPercentage = targetText.includes('%');
+      const isPlus = targetText.includes('+');
+      const duration = 1500;
+      let start = null;
+
+      function step(timestamp) {
+        if (!start) start = timestamp;
+        const progress = timestamp - start;
+        const percent = Math.min(progress / duration, 1);
+        const value = Math.floor(percent * target);
+
+        counter.textContent = value + (isPercentage ? '%' : isPlus ? '+' : '');
+        if (percent < 1) {
+          requestAnimationFrame(step);
+        } else {
+          counter.textContent = targetText;
+          counter.dataset.animated = 'true';
+        }
+      }
+
+      requestAnimationFrame(step);
+    });
+  }
+
+  const heroSection = document.querySelector('.hero');
+  if (heroSection) {
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          heroObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    heroObserver.observe(heroSection);
+  }
+
+  // ✅ Service card hover effect
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-15px) scale(1.02)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+
+  // ✅ Page load animation
+  body.style.opacity = '0';
+  body.style.transform = 'translateY(20px)';
+  body.style.transition = 'all 0.8s ease';
+
+  window.addEventListener('load', () => {
+    body.style.opacity = '1';
+    body.style.transform = 'translateY(0)';
+  });
+});
+</script>
+
 </body>
 </html>
