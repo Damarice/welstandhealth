@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Welstand Rehab Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            /* Colors */
+            --primary-color: #418f93;
+            --primary-dark-color: #367c80;
+            --text-dark: #333;
+            --text-medium: #666;
+            --text-light: #ccc;
+            --text-faded: rgba(255, 255, 255, 0.9);
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --bg-dark: #1a1a1a;
+            --border-light: rgba(65, 143, 147, 0.1);
+            --border-white-light: rgba(255, 255, 255, 0.2);
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+            --spacing-section: 5rem;
+
+            /* Font Sizes */
+            --font-size-base: 1rem;
+            --font-size-sm: 0.9rem;
+            --font-size-md: 1.1rem;
+            --font-size-lg: 1.2rem;
+            --font-size-xl: 1.5rem;
+            --font-size-h3: 1.3rem;
+            --font-size-h2: 2.5rem;
+            --font-size-h1: 3.5rem;
+
+            /* Border Radii */
+            --border-radius-sm: 8px;
+            --border-radius-md: 15px;
+            --border-radius-lg: 20px;
+            --border-radius-pill: 50px;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --shadow-primary-sm: 0 4px 15px rgba(65, 143, 147, 0.3);
+            --shadow-primary-md: 0 5px 15px rgba(65, 143, 147, 0.3);
+            --shadow-primary-lg: 0 8px 25px rgba(65, 143, 147, 0.4);
+
+            /* Transitions */
+            --transition-speed: 0.3s;
+            --transition-ease: ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: var(--spacing-sm) 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-speed) var(--transition-ease);
+        }
+
+        header.sticky {
+            padding: 0.5rem 0; /* Slightly reduced padding when sticky */
+            box-shadow: var(--shadow-md);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-size: var(--font-size-xl);
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            position: relative;
+            transition: color var(--transition-speed) var(--transition-ease);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width var(--transition-speed) var(--transition-ease);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark-color));
+            color: var(--bg-white);
+            padding: 0.7rem var(--spacing-md);
+            border-radius: var(--border-radius-pill);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+            box-shadow: var(--shadow-primary-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-primary-lg);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, rgba(65, 143, 147, 0.8), rgba(65, 143, 147, 0.6)), url('assets/background.jpg') center center / cover no-repeat;
+            padding: 120px 0 80px;
+            text-align: center;
+            color: var(--bg-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            z-index: 1; /* Ensure this is below content */
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2; /* Ensure content is above overlay */
+        }
+
+        .page-header h1 {
+            font-size: var(--font-size-h1);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .page-header p {
+            font-size: var(--font-size-md);
+            color: var(--text-faded);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Our Story Section */
+        .our-story {
+            padding: var(--spacing-section) 0;
+            background: var(--bg-white);
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xxl);
+            align-items: center;
+        }
+
+        .story-text h2 {
+            font-size: var(--font-size-h2);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
+        }
+
+        .story-text .highlight {
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            padding: 0.2rem 0.8rem;
+            border-radius: var(--border-radius-sm);
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .story-text p {
+            color: var(--text-medium);
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-md);
+            line-height: 1.7;
+        }
+
+        .story-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 480px; /* Increased height */
+            object-fit: cover;
+            transition: transform var(--transition-speed) var(--transition-ease);
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Mission Vision Values */
+        .mission-vision-values {
+            padding: var(--spacing-section) 0;
+            background: var(--bg-light);
+        }
+
+        .mvv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+
+        .mvv-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-speed) var(--transition-ease);
+            text-align: center;
+            border: 1px solid var(--border-light);
+        }
+
+        .mvv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mvv-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-white);
+            font-size: 2rem;
+            margin: 0 auto var(--spacing-md);
+            box-shadow: var(--shadow-primary-md);
+        }
+
+        .mvv-card h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+            font-size: var(--font-size-h3);
+        }
+
+        .mvv-card p {
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        /* Core Values */
+        .core-values {
+            padding: var(--spacing-section) 0;
+            background: var(--bg-white);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted for 3 per row */
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .value-item {
+            background: var(--bg-light);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: all var(--transition-speed) var(--transition-ease);
+            border: 1px solid var(--border-light);
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-white);
+            font-size: var(--font-size-xl);
+            margin: 0 auto var(--spacing-sm);
+        }
+
+        .value-item h4 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+            font-size: var(--font-size-lg);
+        }
+
+        .value-item p {
+            color: var(--text-medium);
+            font-size: var(--font-size-sm);
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: var(--spacing-section) 0;
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-header h2 {
+            font-size: var(--font-size-h2);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-header p {
+            color: var(--text-medium);
+            font-size: var(--font-size-md);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .team-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-speed) var(--transition-ease);
+            text-align: center;
+            border: 1px solid var(--border-light);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-white);
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0 auto var(--spacing-md);
+            box-shadow: var(--shadow-primary-md);
+        }
+
+        .team-card h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+            font-size: var(--font-size-h3);
+        }
+
+        .team-card .role {
+            color: var(--text-medium);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 500;
+        }
+
+        .team-card p {
+            color: var(--text-medium);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(65, 143, 147, 0.8), rgba(65, 143, 147, 0.6)), url('assets/cta-back.png') center center / cover no-repeat;
+            padding: var(--spacing-section) 0;
+            color: var(--bg-white);
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: var(--font-size-h2);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-content p {
+            font-size: var(--font-size-md);
+            margin-bottom: var(--spacing-xl);
+            color: var(--text-faded);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--bg-white);
+            color: var(--primary-color);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius-pill);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-speed);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--bg-white);
+            border: 2px solid var(--bg-white);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius-pill);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-speed);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-white);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: var(--bg-white);
+            padding: var(--spacing-section) 0 var(--spacing-lg);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted for better fit */
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-h3);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .footer-section h3 i {
+            color: var(--primary-color);
+        }
+
+        .footer-section p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-section ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-white);
+            text-decoration: none;
+            transition: all var(--transition-speed);
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-dark-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-primary-md);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-white-light);
+            padding-top: var(--spacing-lg);
+            text-align: center;
+            color: var(--text-light);
+            font-size: var(--font-size-sm);
+        }
+
+        .footer-bottom i {
+            color: var(--primary-color);
+            margin: 0 var(--spacing-xs);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) { /* Adjusted breakpoint for values-grid to accommodate 3 per row */
+            .values-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Further adjust for smaller desktop */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .mvv-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr; /* Stack on small screens */
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr; /* Stack on mobile */
+                gap: var(--spacing-lg);
+            }
+
+            .footer-bottom {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            .mvv-card h3, .footer-section h3 {
+                font-size: 1.5rem;
+            }
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                text-align: center;
+                padding-left: var(--spacing-md);
+                padding-right: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-heartbeat"></i>
+                Welstand
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="process.html">Process</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="contact-btn">
+                <i class="fas fa-phone"></i> Contact Us
+            </a>
+        </nav>
+    </header>
+
+    <section class="page-header" id="home">
+        <div class="container">
+            <div class="page-header-content">
+                <h1>About <span class="highlight">Welstand</span></h1>
+                <p>Dedicated to building independence and enhancing quality of life through personalized rehabilitation services</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="our-story" id="about">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2>Our <span class="highlight">Story</span></h2>
+                    <p>Founded in 2019, Welstand emerged from a vision to transform rehabilitation services by focusing on independence and capacity building across the lifespan. Our journey began with a simple yet powerful belief: every individual deserves personalized, compassionate care that enhances their ability to live life to the fullest.</p>
+
+                    <p>Built on the foundation of evidence-based practice and genuine care, we've grown from a small team of dedicated professionals to a comprehensive rehabilitation service provider. Our commitment to excellence and individualized care has made us a trusted partner for families and individuals seeking quality occupational therapy and physiotherapy services.</p>
+
+                    <p>What sets us apart is our holistic approach to rehabilitation. We don't just treat conditions; we empower individuals to achieve their goals, build confidence, and reclaim their independence through well-thought-out and carefully planned programs.</p>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Welstand rehabilitation center">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-vision-values">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Foundation</h2>
+                <p>The principles that guide everything we do</p>
+            </div>
+            <div class="mvv-grid">
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Mission</h3>
+                    <p>To promote and maintain health, build capacity, prevent disability, increase independent functioning and enhance development through quality and individualized occupational therapy and physiotherapy services.</p>
+                </div>
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Vision</h3>
+                    <p>To be the leading provider of rehabilitation services, empowering individuals across their lifespan to achieve optimal independence and quality of life through innovative, compassionate care.</p>
+                </div>
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Purpose</h3>
+                    <p>Building independence and capacity for all across the lifespan through personalized, evidence-based therapeutic interventions that restore function and enhance participation in meaningful activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="core-values">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Values</h2>
+                <p>The values that shape our approach to care and guide our daily practice</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4>Compassion</h4>
+                    <p>We approach every client with empathy, understanding, and genuine care for their well-being and journey.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Integrity</h4>
+                    <p>We maintain the highest ethical standards in all our interactions and deliver services with honesty and transparency.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Collaboration</h4>
+                    <p>We work closely with clients, families, and healthcare teams to achieve the best possible outcomes through partnership.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <h4>Inclusivity</h4>
+                    <p>We ensure that all individuals, regardless of background or condition, receive equal access to quality care and respect.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4>Excellence</h4>
+                    <p>We continuously strive for the highest standards in service delivery and professional development.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4>Innovation</h4>
+                    <p>We embrace new approaches and technologies to enhance our therapeutic interventions and client outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Expert Team</h2>
+                <p>Meet our team of experienced and certified professionals dedicated to your rehabilitation journey</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Certified Physiotherapists</h3>
+                    <p class="role">Movement & Function Specialists</p>
+                    <p>Our physiotherapists specialize in improving physical function and mobility through evidence-based therapeutic techniques, manual therapy, and personalized exercise programs.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Occupational Therapists</h3>
+                    <p class="role">Daily Living & Independence Experts</p>
+                    <p>Our occupational therapists focus on enabling individuals to achieve independence in activities of daily living through therapeutic activities and adaptive strategies.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Hand Therapy Specialists</h3>
+                    <p class="role">Upper Extremity Rehabilitation</p>
+                    <p>Specialized in combining physiotherapy and occupational therapy techniques for comprehensive upper extremity rehabilitation and recovery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Journey?</h2>
+                <p>Let our experienced team help you achieve your rehabilitation goals with personalized care and evidence-based treatments.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn-primary">
+                        <i class="fas fa-calendar-check"></i>
+                        Book Assessment
+                    </a>
+                    <a href="#services" class="btn-secondary">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-heartbeat"></i> Welstand Rehab Services</h3>
+                    <p>Founded in 2019, we are dedicated to providing quality occupational therapy and physiotherapy services to promote health and independence across the lifespan.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-stethoscope"></i> Our Services</h3>
+                    <ul>
+                        <li><a href="#services">Comprehensive Assessments</a></li>
+                        <li><a href="#services">Occupational Therapy</a></li>
+                        <li><a href="#services">Physiotherapy</a></li>
+                        <li><a href="#services">Hand Therapy</a></li>
+                        <li><a href="#services">Sensory Integration</a></li>
+                        <li><a href="#services">Personalized Care</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-info-circle"></i> Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Our Process</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-clock"></i> Working Hours</h3>
+                    <ul>
+                        <li>Monday - Friday: 8:00 AM - 6:00 PM</li>
+                        <li>Saturday: 9:00 AM - 3:00 PM</li>
+                        <li>Sunday: Closed</li>
+                        <li>Emergency: 24/7 Available</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Welstand Rehab Services. All rights reserved. | Promoting Health, Building Capacity, Enhancing Lives |
+                    <i class="fas fa-map-marker-alt"></i> Nairobi, Kenya |
+                    <i class="fas fa-envelope"></i> Welstandrehabs19@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) { // Adjust scroll threshold as needed
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
