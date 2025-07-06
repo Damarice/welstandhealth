@@ -83,6 +83,20 @@ body {
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
 }
+.logo img {
+  height: 80px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3D66C9; /* your primary color */
+  text-decoration: none;
+}
 
 /* Header */
 header {
@@ -993,8 +1007,9 @@ body.menu-open {
 <header>
   <nav class="container">
     <div class="logo">
-      <i class="fas fa-heartbeat"></i>
-      Welstand
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Welstand Logo" class="logo-image">
+      </a>
     </div>
 
     <!-- Desktop Nav -->
@@ -1034,123 +1049,151 @@ body.menu-open {
 </nav>
 
 
+<section class="services" id="services">
+    <div class="container">
+        <div class="services-header">
+            <h2>Speech Therapy & Rehabilitation</h2>
+            <p class="services-subtitle">
+                At Welstand, we provide personalized and inclusive therapy services tailored to meet the unique needs of individuals across all age groups—enhancing independence, capacity, and quality of life.
+            </p>
+        </div>
 
-    <section class="page-header">
-        <div class="container">
-            <div class="page-header-content">
-                <h1>Our Services</h1>
-                <p>Explore the wide range of rehabilitation and therapy services we offer to help you achieve your health goals.</p>
+        <div class="filter-tabs">
+            <div class="filter-tab active" data-category="all"><span>All Services</span></div>
+            <div class="filter-tab" data-category="assessment"><span>Assessments</span></div>
+            <div class="filter-tab" data-category="therapy"><span>Therapy Services</span></div>
+            <div class="filter-tab" data-category="specialized"><span>Specialized Care</span></div>
+        </div>
+
+        <div class="services-grid">
+            <!-- Assessments -->
+            <div class="service-card visible" data-category="assessment">
+                <img src="assets/comprehensive.jpg" alt="Assessments" class="service-image">
+                <div class="service-category">Assessment</div>
+                <h3>Comprehensive Assessments</h3>
+                <p>Identify client strengths and weaknesses to develop personalized treatment plans.</p>
+                <ul class="service-list">
+                    <li>Sensory Assessment</li>
+                    <li>Functional Assessment</li>
+                    <li>Developmental Assessment</li>
+                    <li>Cognitive Assessment</li>
+                </ul>
+            </div>
+
+            <!-- Occupational Therapy -->
+            <div class="service-card visible" data-category="therapy">
+                <img src="assets/Occupational Therapy.jpg" alt="Occupational Therapy" class="service-image">
+                <div class="service-category">Therapy</div>
+                <h3>Occupational Therapy</h3>
+                <p>Helping individuals achieve independence through therapeutic activities.</p>
+                <ul class="service-list">
+                    <li>Early Assessments</li>
+                    <li>Intervention Planning</li>
+                    <li>Therapeutic Activities</li>
+                    <li>Education and Training</li>
+                </ul>
+            </div>
+
+            <!-- Physiotherapy -->
+            <div class="service-card visible" data-category="therapy">
+                <img src="assets/physiotherapy.jpg" alt="Physiotherapy" class="service-image">
+                <div class="service-category">Therapy</div>
+                <h3>Physiotherapy</h3>
+                <p>Enhancing mobility and function through manual and exercise therapy techniques.</p>
+                <ul class="service-list">
+                    <li>Assessment and Diagnosis</li>
+                    <li>Manual Therapy</li>
+                    <li>Exercise Therapy</li>
+                    <li>Education and Advice</li>
+                </ul>
+            </div>
+
+            <!-- Speech Therapy -->
+            <div class="service-card visible" data-category="therapy">
+                <img src="assets/speech.jpg" alt="Speech Therapy" class="service-image">
+                <div class="service-category">Therapy</div>
+                <h3>Speech & Language Therapy</h3>
+                <p>Helping clients with communication and swallowing difficulties.</p>
+                <ul class="service-list">
+                    <li>Speech Therapy (Articulation & Fluency)</li>
+                    <li>Language Therapy (Vocabulary, Grammar, Social Use)</li>
+                    <li>Swallowing Therapy (Eating & Drinking)</li>
+                </ul>
+            </div>
+
+            <!-- Hand Therapy -->
+            <div class="service-card visible" data-category="specialized">
+                <img src="assets/Hand therapy.jpg" alt="Hand Therapy" class="service-image">
+                <div class="service-category">Specialized</div>
+                <h3>Hand Therapy</h3>
+                <p>Combining physiotherapy and occupational therapy for hand function rehabilitation.</p>
+                <ul class="service-list">
+                    <li>Stretching and Mobilization</li>
+                    <li>Active and Resisted Exercises</li>
+                    <li>Orthosis Fabrication</li>
+                    <li>ADL Training</li>
+                </ul>
+            </div>
+
+            <!-- Sensory Integration -->
+            <div class="service-card visible" data-category="specialized">
+                <img src="assets/sensory intergration.jpg" alt="Sensory Integration" class="service-image">
+                <div class="service-category">Specialized</div>
+                <h3>Sensory Integration</h3>
+                <p>Understanding and addressing sensory processing patterns that affect daily activities.</p>
+                <ul class="service-list">
+                    <li>Sensory Processing Assessment</li>
+                    <li>Intervention Planning</li>
+                    <li>Therapeutic Activities</li>
+                    <li>Family Education</li>
+                </ul>
+            </div>
+
+            <!-- Home Therapy -->
+            <div class="service-card visible" data-category="specialized">
+                <img src="assets/home therapy.jpg" alt="Home Therapy" class="service-image">
+                <div class="service-category">Specialized</div>
+                <h3>Home Therapy & Programs</h3>
+                <p>Therapy services offered at home to enhance comfort and consistency.</p>
+                <ul class="service-list">
+                    <li>In-Home Therapy Sessions</li>
+                    <li>Customized Home Programs</li>
+                    <li>Family Guidance</li>
+                    <li>Routine Follow-ups</li>
+                </ul>
+            </div>
+
+            <!-- Reintegration -->
+            <div class="service-card visible" data-category="specialized">
+                <img src="assets/reintergration support.jpg" alt="Reintegration Services" class="service-image">
+                <div class="service-category">Specialized</div>
+                <h3>Reintegration Support</h3>
+                <p>Supporting return to work, school, and society after illness or injury.</p>
+                <ul class="service-list">
+                    <li>Transition Planning</li>
+                    <li>Support Group Connection</li>
+                    <li>Workplace & School Preparation</li>
+                    <li>Family & Vocational Education</li>
+                </ul>
+            </div>
+
+            <!-- Home & Office Assessment -->
+            <div class="service-card visible" data-category="specialized">
+                <img src="assets/home theeapy.jpg" alt="Home and Office Assessment" class="service-image">
+                <div class="service-category">Specialized</div>
+                <h3>Home & Office Assessment</h3>
+                <p>Improving daily living and productivity through accessible environments.</p>
+                <ul class="service-list">
+                    <li>Barrier Identification</li>
+                    <li>Ergonomic Adjustments</li>
+                    <li>Safety Education</li>
+                    <li>Space Optimization</li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    ---
-
-    <section class="services" id="services">
-        <div class="container">
-            <div class="services-header">
-                <h2>Comprehensive Care For Your <span class="highlight">Health</span></h2>
-                <p class="services-subtitle">We provide personalized therapeutic services tailored to meet your unique needs across various age groups and conditions.</p>
-            </div>
-            
-            <div class="filter-tabs">
-                <div class="filter-tab active" data-category="all">
-                    <span>All Services</span>
-                </div>
-                <div class="filter-tab" data-category="assessment">
-                    <span>Assessments</span>
-                </div>
-                <div class="filter-tab" data-category="therapy">
-                    <span>Therapy Services</span>
-                </div>
-                <div class="filter-tab" data-category="specialized">
-                    <span>Specialized Care</span>
-                </div>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card visible" data-category="assessment">
-                    <img src="assets/1.png" alt="Comprehensive Assessment" class="service-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%23418f93%22/><text x=%22200%22 y=%22100%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2218%22 fill=%22white%22>Assessment</text></svg>'">
-                    <div class="service-category">Assessment</div>
-                    <h3>Comprehensive Assessments</h3>
-                    <p>We provide thorough assessments to identify client strengths and weaknesses for proper treatment planning.</p>
-                    <ul class="service-list">
-                        <li>Sensory Assessment</li>
-                        <li>Functional Assessment</li>
-                        <li>Developmental Assessment</li>
-                        <li>Cognitive Assessment</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card visible" data-category="therapy">
-                    <img src="assets/2.png" alt="Occupational Therapy" class="service-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%23418f93%22/><text x=%22200%22 y=%22100%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2218%22 fill=%22white%22>Occupational Therapy</text></svg>'">
-                    <div class="service-category">Therapy</div>
-                    <h3>Occupational Therapy</h3>
-                    <p>Our services focus on enabling independence in activities of daily living through therapeutic activities.</p>
-                    <ul class="service-list">
-                        <li>Early Assessments</li>
-                        <li>Intervention Planning</li>
-                        <li>Therapeutic Activities</li>
-                        <li>Education and Training</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card visible" data-category="therapy">
-                    <img src="assets/3 (2).png" alt="Physiotherapy" class="service-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%23418f93%22/><text x=%22200%22 y=%22100%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2218%22 fill=%22white%22>Physiotherapy</text></svg>'">
-                    <div class="service-category">Therapy</div>
-                    <h3>Physiotherapy</h3>
-                    <p>Our physiotherapists focus on improving physical function and mobility through various therapeutic techniques.</p>
-                    <ul class="service-list">
-                        <li>Assessment and Diagnosis</li>
-                        <li>Manual Therapy</li>
-                        <li>Exercise Therapy</li>
-                        <li>Education and Advice</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card visible" data-category="specialized">
-                    <img src="assets/4.png" alt="Hand Therapy" class="service-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%23418f93%22/><text x=%22200%22 y=%22100%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2218%22 fill=%22white%22>Hand Therapy</text></svg>'">
-                    <div class="service-category">Specialized</div>
-                    <h3>Hand Therapy</h3>
-                    <p>Specialized therapy combining physiotherapy and occupational therapy techniques for hand rehabilitation.</p>
-                    <ul class="service-list">
-                        <li>Stretching and Mobilization</li>
-                        <li>Active and Resisted Exercises</li>
-                        <li>Orthosis Fabrication</li>
-                        <li>ADL Training</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card visible" data-category="specialized">
-                    <img src="assets/5.png" alt="Sensory Integration" class="service-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%23418f93%22/><text x=%22200%22 y=%22100%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2218%22 fill=%22white%22>Sensory Integration</text></svg>'">
-                    <div class="service-category">Specialized</div>
-                    <h3>Sensory Integration</h3>
-                    <p>We help identify unique sensory processing patterns and develop proper interventions for daily activities.</p>
-                    <ul class="service-list">
-                        <li>Sensory Processing Assessment</li>
-                        <li>Intervention Planning</li>
-                        <li>Therapeutic Activities</li>
-                        <li>Family Education</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card visible" data-category="specialized">
-                    <img src="assets/6.png" alt="Personalized Care" class="service-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%23418f93%22/><text x=%22200%22 y=%22100%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2218%22 fill=%22white%22>Personalized Care</text></svg>'">
-                    <div class="service-category">Specialized</div>
-                    <h3>Personalized Care</h3>
-                    <p>All our services are tailored to meet the unique needs of clients across various age groups and conditions.</p>
-                    <ul class="service-list">
-                        <li>Individual Treatment Plans</li>
-                        <li>Age-Appropriate Interventions</li>
-                        <li>Condition-Specific Care</li>
-                        <li>Ongoing Support</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    ---
 
     <section class="cta-section">
         <div class="container">
@@ -1208,10 +1251,9 @@ body.menu-open {
                 <div class="footer-section">
                     <h3><i class="fas fa-clock"></i> Working Hours</h3>
                     <ul>
-                        <li>Monday - Friday: 8:00 AM - 6:00 PM</li>
+                        <li>Mon- Fri 9am to 5pm</li>
                         <li>Saturday: 9:00 AM - 3:00 PM</li>
                         <li>Sunday: Closed</li>
-                        <li>Emergency: 24/7 Available</li>
                     </ul>
                 </div>
             </div>

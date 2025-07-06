@@ -83,6 +83,21 @@ body {
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
 }
+.logo img {
+  height: 80px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3D66C9; /* your primary color */
+  text-decoration: none;
+}
+
 
 /* Header */
 header {
@@ -762,11 +777,12 @@ body.menu-open {
     </style>
 </head>
 <body>
- <header>
+<header>
   <nav class="container">
     <div class="logo">
-      <i class="fas fa-heartbeat"></i>
-      Welstand
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Welstand Logo" class="logo-image">
+      </a>
     </div>
 
     <!-- Desktop Nav -->
@@ -804,8 +820,6 @@ body.menu-open {
     <i class="fas fa-phone"></i> Contact Us
   </a>
 </nav>
-
-
 
     <section class="page-header">
         <div class="container">
@@ -913,10 +927,9 @@ body.menu-open {
                 <div class="footer-section">
                     <h3><i class="fas fa-clock"></i> Working Hours</h3>
                     <ul>
-                        <li>Monday - Friday: 8:00 AM - 6:00 PM</li>
+                        <li>Mon- Fri 9am to 5pm</li>
                         <li>Saturday: 9:00 AM - 3:00 PM</li>
                         <li>Sunday: Closed</li>
-                        <li>Emergency: 24/7 Available</li>
                     </ul>
                 </div>
             </div>
