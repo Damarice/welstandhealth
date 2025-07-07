@@ -1541,6 +1541,215 @@ body.menu-open {
                 padding: 0 var(--spacing-md);
             }
         }
+         /* Testimonials Section */
+        .testimonials-section {
+            padding: var(--spacing-section) 0;
+            background: var(--bg-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(65, 143, 147, 0.03) 100%);
+            pointer-events: none;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            position: relative;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .testimonials-title {
+            font-size: var(--font-size-h2);
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .testimonials-subtitle {
+            font-size: var(--font-size-md);
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .testimonial-card {
+            background: var(--bg-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transition: all var(--transition-speed) var(--transition-ease);
+            border: 1px solid var(--border-light);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: var(--spacing-lg);
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .testimonial-content {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .testimonial-text {
+            font-size: var(--font-size-base);
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+            font-style: italic;
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 2px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .star {
+            color: #ffd700;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .author-title {
+            font-size: var(--font-size-sm);
+            color: var(--text-medium);
+        }
+
+        .testimonials-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xxl);
+            margin-top: var(--spacing-xxl);
+            padding-top: var(--spacing-xxl);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: var(--font-size-h2);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--text-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: var(--spacing-xxl) 0;
+            }
+
+            .testimonials-container {
+                padding: 0 var(--spacing-md);
+            }
+
+            .testimonials-title {
+                font-size: var(--font-size-xl);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .testimonial-card {
+                padding: var(--spacing-lg);
+            }
+
+            .testimonials-stats {
+                flex-direction: column;
+                gap: var(--spacing-lg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .testimonials-stats {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+
+            .stat-item {
+                flex: 1;
+                min-width: 120px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1901,6 +2110,122 @@ body.menu-open {
             </div>
         </div>
     </section>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <h2 class="testimonials-title">What Our Clients Say</h2>
+                <p class="testimonials-subtitle">
+                    Don't just take our word for it. Here's what our clients have to say about their journey to recovery and wellness with Welstand.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "Welstand completely transformed my life. The compassionate staff and comprehensive treatment program gave me the tools I needed to overcome addiction and rebuild my relationships. I'm now 18 months clean and couldn't be more grateful."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah M.</div>
+                            <div class="author-title">Recovery Graduate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "As a family member, I was skeptical about rehabilitation centers. But Welstand's family program helped us understand addiction as a disease and taught us how to support our loved one. The communication and transparency were exceptional."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <div class="author-name">John D.</div>
+                            <div class="author-title">Family Member</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "The holistic approach at Welstand addressed not just my addiction, but also my mental health and overall well-being. The therapy sessions, group activities, and aftercare support have been invaluable in my recovery journey."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <div class="author-name">Michael R.</div>
+                            <div class="author-title">Alumni</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "From the moment I walked through the doors, I felt welcomed and understood. The staff treated me with dignity and respect, and the personalized treatment plan made all the difference. Welstand saved my life."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">L</div>
+                        <div class="author-info">
+                            <div class="author-name">Lisa K.</div>
+                            <div class="author-title">Recovery Success Story</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials-stats">
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Lives Changed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="contact" id="contact">
         <div class="container">
@@ -1914,7 +2239,7 @@ body.menu-open {
                         </div>
                         <div>
                             <h3>Email Us</h3>
-                            <p>Welstandrehabs19@gmail.com</p>
+                            <p>info@welstandhealth.co.ke/Andy.khasiani@welstandhealth.co.ke</p>
                         </div>
                     </div>
                     <div class="contact-item animate-fadeInUp">
@@ -1940,17 +2265,17 @@ body.menu-open {
         </div>
     </section>
 
-    <footer>
+<footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3><i class="fas fa-heartbeat"></i> Welstand Rehab Services</h3>
                     <p>Founded in 2019, we are dedicated to providing quality occupational therapy and physiotherapy services to promote health and independence across the lifespan.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -1962,6 +2287,7 @@ body.menu-open {
                         <li><a href="#services">Hand Therapy</a></li>
                         <li><a href="#services">Sensory Integration</a></li>
                         <li><a href="#services">Personalized Care</a></li>
+                        <li><a href="#services">Speech Therapy</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -1978,14 +2304,14 @@ body.menu-open {
                     <h3><i class="fas fa-clock"></i> Working Hours</h3>
                     <ul>
                         <li>Mon- Fri 9am to 5pm</li>
-                        <li>Saturday: 9:00 AM - 3:00 PM</li>
+                        <li>Saturday: 9:00 AM - 5:00 PM</li>
                         <li>Sunday: Closed</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Welstand Rehab Services. All rights reserved. | Promoting Health, Building Capacity, Enhancing Lives | 
-                    <i class="fas fa-map-marker-alt"></i> Nairobi, Kenya | 
+                <p>&copy; 2025 Welstand Rehab Services. All rights reserved. | Promoting Health, Building Capacity, Enhancing Lives |
+                    <i class="fas fa-map-marker-alt"></i> Nairobi, Kenya |
                     <i class="fas fa-envelope"></i> Welstandrehabs19@gmail.com</p>
             </div>
         </div>
