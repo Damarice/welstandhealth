@@ -59,18 +59,17 @@
   --transition-ease: ease;
 }
 
-/* Base */
+/* Reset and Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
+html, body {
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
-}
-
-body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
@@ -83,21 +82,6 @@ body {
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
 }
-.logo img {
-  height: 80px;
-  vertical-align: middle;
-  margin-right: 10px;
-}
-
-.logo a {
-  display: flex;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #3D66C9; /* your primary color */
-  text-decoration: none;
-}
-
 
 /* Header */
 header {
@@ -109,7 +93,7 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
+  transition: all var(--transition-speed) var(--transition-ease);
 }
 
 nav {
@@ -129,9 +113,18 @@ nav {
   z-index: 1001;
 }
 
-.logo i {
-  font-size: 1.8rem;
-  color: var(--primary-color);
+.logo img {
+  height: 80px;
+  vertical-align: middle;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3D66C9;
+  text-decoration: none;
 }
 
 /* Nav Links */
@@ -189,104 +182,11 @@ nav {
   box-shadow: var(--shadow-primary-lg);
 }
 
-/* Mobile Menu Toggle Button */
-.mobile-menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-  background: rgba(59, 130, 246, 0.1);
-  border: 2px solid var(--primary-color);
-  border-radius: 8px;
-  padding: 0.5rem;
-  cursor: pointer;
-  z-index: 1001;
-  transition: all var(--transition-speed) var(--transition-ease);
+/* Ensure Main Content Starts Below Fixed Header */
+main {
+  padding-top: 120px; /* Adjust based on header height */
 }
 
-.mobile-menu-toggle:hover {
-  background: rgba(59, 130, 246, 0.2);
-  transform: scale(1.05);
-}
-
-.mobile-menu-toggle span {
-  display: block;
-  width: 28px;
-  height: 3px;
-  background: var(--primary-color);
-  margin: 3px 0;
-  transition: all var(--transition-speed) var(--transition-ease);
-  transform-origin: center;
-  border-radius: 2px;
-}
-
-.mobile-menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.mobile-menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.mobile-menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
-}
-
-/* Desktop Navigation Only */
-.nav-desktop {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-lg);
-}
-
-/* Mobile Nav */
-.nav-mobile {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(20px);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: var(--spacing-lg);
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  transition: all var(--transition-speed) var(--transition-ease);
-}
-
-.nav-mobile.active {
-  display: flex;
-  opacity: 1;
-  visibility: visible;
-}
-
-.nav-mobile .nav-links {
-  flex-direction: column;
-  gap: var(--spacing-lg);
-  text-align: center;
-}
-
-.nav-mobile .nav-links a {
-  font-size: 1.5rem;
-  font-weight: 500;
-  /* Added to ensure visibility on mobile */
-  color: var(--text-dark); /* Ensure it's explicitly dark */
-}
-
-.nav-mobile .contact-btn {
-  margin-top: var(--spacing-md);
-  font-size: 1.2rem;
-  padding: 1rem var(--spacing-lg);
-}
-
-/* Rest of your CSS */
 
 /* Prevent Body Scroll */
 body.menu-open {
@@ -343,179 +243,218 @@ body.menu-open {
   }
 }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(65, 143, 147, 0.9), rgba(65, 143, 147, 0.7)),
-                        url('assets/background.jpg');
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            margin-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
+  /* Hero Section */
+.hero {
+    background: linear-gradient(135deg, rgba(65, 143, 147, 0.9), rgba(65, 143, 147, 0.7)),
+                url('assets/background.jpg');
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-        }
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+}
 
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-xxl);
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
 
-        .hero-text h1 {
-            font-size: var(--font-size-h1);
-            font-weight: 700;
-            color: var(--bg-white);
-            margin-bottom: var(--spacing-sm);
-            line-height: 1.2;
-        }
+.hero-text h1 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    color: var(--bg-white);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
 
-        .hero-text .highlight {
-            background-color: var(--bg-white);
-            color: var(--primary-color);
-            padding: 0.2rem 0.8rem;
-            border-radius: var(--border-radius-sm);
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-            font-weight: 700;
-        }
+.hero-text .highlight {
+    background-color: var(--bg-white);
+    color: var(--primary-color);
+    padding: 0.2rem 0.8rem;
+    border-radius: var(--border-radius-sm);
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    font-weight: 700;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
 
-        .hero-text p {
-            color: var(--text-faded);
-            font-size: var(--font-size-md);
-            margin-bottom: var(--spacing-lg);
-        }
+.hero-text p {
+    color: rgba(255, 255, 255, 0.95); /* Much brighter white */
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    line-height: 1.6;
+}
 
-        .hero-buttons {
-            display: flex;
-            gap: var(--spacing-sm);
-        }
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+}
 
-        .btn-primary {
-            background: var(--bg-white);
-            color: var(--primary-color);
-            padding: var(--spacing-sm) var(--spacing-lg);
-            border-radius: var(--border-radius-pill);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all var(--transition-speed);
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            box-shadow: var(--shadow-md);
-        }
+.btn-primary {
+    background: var(--bg-white);
+    color: var(--primary-color);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-pill);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-speed);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    box-shadow: var(--shadow-md);
+}
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
 
-        .btn-secondary {
-            background: transparent;
-            color: var(--bg-white);
-            border: 2px solid var(--bg-white);
-            padding: var(--spacing-sm) var(--spacing-lg);
-            border-radius: var(--border-radius-pill);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all var(--transition-speed);
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-        }
+.btn-secondary {
+    background: transparent;
+    color: var(--bg-white);
+    border: 2px solid var(--bg-white);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-pill);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-speed);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
 
-        .btn-secondary:hover {
-            background: var(--bg-white);
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
+.btn-secondary:hover {
+    background: var(--bg-white);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
 
-        .hero-image {
-            position: relative;
-        }
+.hero-image {
+    position: relative;
+}
 
-        .hero-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-lg);
-            box-shadow: var(--shadow-xl);
-            margin-bottom: var(--spacing-lg);
-            border: 1px solid var(--border-white-light);
-        }
+.hero-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-xl);
+    margin-bottom: var(--spacing-lg);
+    border: 1px solid var(--border-white-light);
+}
 
-        .therapist-info {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
+.therapist-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
 
-        .therapist-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--bg-white);
-            font-weight: bold;
-            font-size: var(--font-size-xl);
-            box-shadow: var(--shadow-primary-md);
-        }
+.therapist-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg-white);
+    font-weight: bold;
+    font-size: var(--font-size-xl);
+    box-shadow: var(--shadow-primary-md);
+}
 
-        .therapist-details h3 {
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-xs);
-        }
+.therapist-details h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
 
-        .therapist-details p {
-            color: var(--text-medium);
-            font-size: var(--font-size-sm);
-        }
+.therapist-details p {
+    color: var(--text-medium);
+    font-size: var(--font-size-sm);
+}
 
-        .stats {
-            display: flex;
-            gap: var(--spacing-xl);
-            margin-top: var(--spacing-lg);
-            justify-content: center; /* Centered stats for better layout on smaller screens */
-        }
+.stats {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1); /* Subtle background for better visibility */
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
 
-        .stat-item {
-            text-align: center;
-            transition: transform var(--transition-speed) var(--transition-ease);
-        }
+.stat-item {
+    text-align: center;
+    transition: transform var(--transition-speed) var(--transition-ease);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+}
 
-        .stat-item:hover {
-            transform: translateY(-5px);
-        }
+.stat-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
 
-        .stat-number {
-            font-size: var(--font-size-h2);
-            font-weight: bold;
-            color: var(--bg-white);
-            display: block;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
+.stat-number {
+    font-size: var(--font-size-h2);
+    font-weight: 800; /* Bolder font weight */
+    color: #ffffff; /* Pure white for maximum contrast */
+    display: block;
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    margin-bottom: var(--spacing-xs);
+    background: linear-gradient(45deg, #ffffff, #f8f9fa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
 
-        .stat-label {
-            color: var(--text-faded);
-            font-size: var(--font-size-sm);
-        }
+.stat-label {
+    color: rgba(255, 255, 255, 0.9); /* Brighter white with slight transparency */
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
+/* Additional responsive improvements */
+@media (max-width: 768px) {
+    .stats {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: center;
+    }
+    
+    .stat-item {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .stat-number {
+        font-size: var(--font-size-h1);
+    }
+}
         /* About Section */
         .about {
             padding: var(--spacing-section) 0;
@@ -1753,52 +1692,29 @@ body.menu-open {
     </style>
 </head>
 <body>
-<header>
-  <nav class="container">
-    <div class="logo">
-      <a href="index.html">
-        <img src="assets/logo.png" alt="Welstand Logo" class="logo-image">
+<!-- Header -->
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/logo.png" alt="Welstand Logo" class="logo-image">
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <ul class="nav-links nav-desktop">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <a href="contact.html" class="contact-btn nav-desktop">
+        <i class="fas fa-phone"></i> Contact Us
       </a>
-    </div>
-
-    <!-- Desktop Nav -->
-    <ul class="nav-links nav-desktop">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="process.html">Process</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-
-    <a href="contact.html" class="contact-btn nav-desktop">
-      <i class="fas fa-phone"></i> Contact Us
-    </a>
-
-    <!-- ✅ Mobile Toggle -->
-    <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
-</header>
-
-<!-- ✅ Mobile Menu -->
-<nav id="mobileNav" class="nav-mobile">
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="process.html">Process</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <a href="contact.html" class="contact-btn">
-    <i class="fas fa-phone"></i> Contact Us
-  </a>
-</nav>
-
-
-
+    </nav>
+  </header>
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
@@ -1844,6 +1760,47 @@ body.menu-open {
             </div>
         </div>
     </section>
+
+    <script>
+        // Mobile menu toggle functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileNav');
+        const body = document.body;
+
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = document.querySelectorAll('.nav-mobile a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                body.classList.remove('menu-open');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                mobileMenuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+        });
+    </script>
 
     <section class="about" id="about">
         <div class="container">
@@ -1907,21 +1864,21 @@ body.menu-open {
                 <img src="assets/comprehensive.jpg" alt="Assessments" class="service-image">
                 <div class="service-category">Assessment</div>
                 <h3>Comprehensive Assessments</h3>
-                <p>Identify client strengths and weaknesses to develop personalized treatment plans.</p>
+                <p>Identify a client’s strengths and weaknesses to guide formulation of proper treatment plans.</p>
                 <ul class="service-list">
-                    <li>Sensory Assessment</li>
-                    <li>Functional Assessment</li>
-                    <li>Developmental Assessment</li>
-                    <li>Cognitive Assessment</li>
+                    <li>Sensory Assessment – Identifies how individuals perceive/respond to sensory input.</li>
+                    <li>Functional Assessment – Assesses daily living abilities and level of assistance needed.</li>
+                    <li>Developmental Assessment – Evaluates motor skills in children and hand injury recovery.</li>
+                    <li>Cognitive Assessment – Examines cognitive strengths and guides tailored interventions.</li>
                 </ul>
             </div>
 
             <!-- Occupational Therapy -->
             <div class="service-card visible" data-category="therapy">
-                <img src="assets/Occupational Therapy.jpg" alt="Occupational Therapy" class="service-image">
+                <img src="assets/4.png" alt="Occupational Therapy" class="service-image">
                 <div class="service-category">Therapy</div>
                 <h3>Occupational Therapy</h3>
-                <p>Helping individuals achieve independence through therapeutic activities.</p>
+                <p>Enabling individuals to achieve independence in daily living through tailored therapeutic care.</p>
                 <ul class="service-list">
                     <li>Early Assessments</li>
                     <li>Intervention Planning</li>
@@ -1932,10 +1889,10 @@ body.menu-open {
 
             <!-- Physiotherapy -->
             <div class="service-card visible" data-category="therapy">
-                <img src="assets/physiotherapy.jpg" alt="Physiotherapy" class="service-image">
+                <img src="assets/phisitherapy.jpg" alt="Physiotherapy" class="service-image">
                 <div class="service-category">Therapy</div>
                 <h3>Physiotherapy</h3>
-                <p>Enhancing mobility and function through manual and exercise therapy techniques.</p>
+                <p>Improving physical function and mobility through personalized therapeutic techniques.</p>
                 <ul class="service-list">
                     <li>Assessment and Diagnosis</li>
                     <li>Manual Therapy</li>
@@ -1946,14 +1903,14 @@ body.menu-open {
 
             <!-- Speech Therapy -->
             <div class="service-card visible" data-category="therapy">
-                <img src="assets/speech.jpg" alt="Speech Therapy" class="service-image">
+                <img src="assets/speech therapy.jpg" alt="Speech Therapy" class="service-image">
                 <div class="service-category">Therapy</div>
                 <h3>Speech & Language Therapy</h3>
-                <p>Helping clients with communication and swallowing difficulties.</p>
+                <p>Helping individuals overcome communication and swallowing challenges.</p>
                 <ul class="service-list">
-                    <li>Speech Therapy (Articulation & Fluency)</li>
-                    <li>Language Therapy (Vocabulary, Grammar, Social Use)</li>
-                    <li>Swallowing Therapy (Eating & Drinking)</li>
+                    <li>Speech Therapy – Improves articulation and fluency.</li>
+                    <li>Language Therapy – Enhances vocabulary, grammar, and social communication.</li>
+                    <li>Swallowing Therapy – Supports safe eating, drinking, and swallowing.</li>
                 </ul>
             </div>
 
@@ -1962,12 +1919,12 @@ body.menu-open {
                 <img src="assets/Hand therapy.jpg" alt="Hand Therapy" class="service-image">
                 <div class="service-category">Specialized</div>
                 <h3>Hand Therapy</h3>
-                <p>Combining physiotherapy and occupational therapy for hand function rehabilitation.</p>
+                <p>Combining physiotherapy and occupational therapy to restore hand function.</p>
                 <ul class="service-list">
-                    <li>Stretching and Mobilization</li>
+                    <li>Stretching and Joint Mobilization</li>
                     <li>Active and Resisted Exercises</li>
+                    <li>Retraining for Daily Tasks</li>
                     <li>Orthosis Fabrication</li>
-                    <li>ADL Training</li>
                 </ul>
             </div>
 
@@ -1976,40 +1933,40 @@ body.menu-open {
                 <img src="assets/sensory intergration.jpg" alt="Sensory Integration" class="service-image">
                 <div class="service-category">Specialized</div>
                 <h3>Sensory Integration</h3>
-                <p>Understanding and addressing sensory processing patterns that affect daily activities.</p>
+                <p>Helping individuals understand and manage sensory input to improve daily functioning.</p>
                 <ul class="service-list">
-                    <li>Sensory Processing Assessment</li>
-                    <li>Intervention Planning</li>
+                    <li>Sensory Processing Evaluation</li>
+                    <li>Customized Interventions</li>
                     <li>Therapeutic Activities</li>
                     <li>Family Education</li>
                 </ul>
             </div>
 
-            <!-- Home Therapy -->
+            <!-- Home Therapy & Programs -->
             <div class="service-card visible" data-category="specialized">
-                <img src="assets/home therapy.jpg" alt="Home Therapy" class="service-image">
+                <img src="assets/pt.jpg" alt="Home Therapy" class="service-image">
                 <div class="service-category">Specialized</div>
                 <h3>Home Therapy & Programs</h3>
-                <p>Therapy services offered at home to enhance comfort and consistency.</p>
+                <p>Delivering therapy in home environments for comfort and consistency.</p>
                 <ul class="service-list">
-                    <li>In-Home Therapy Sessions</li>
-                    <li>Customized Home Programs</li>
+                    <li>In-Home Therapy Services</li>
+                    <li>Tailored Home-Based Exercises</li>
                     <li>Family Guidance</li>
-                    <li>Routine Follow-ups</li>
+                    <li>Functional Independence Support</li>
                 </ul>
             </div>
 
-            <!-- Reintegration -->
+            <!-- Reintegration Support -->
             <div class="service-card visible" data-category="specialized">
-                <img src="assets/reintergration support.jpg" alt="Reintegration Services" class="service-image">
+                <img src="assets/reintergration support.jpg" alt="Reintegration Support" class="service-image">
                 <div class="service-category">Specialized</div>
                 <h3>Reintegration Support</h3>
                 <p>Supporting return to work, school, and society after illness or injury.</p>
                 <ul class="service-list">
-                    <li>Transition Planning</li>
-                    <li>Support Group Connection</li>
-                    <li>Workplace & School Preparation</li>
-                    <li>Family & Vocational Education</li>
+                    <li>Transition Plan Development</li>
+                    <li>Support Group and Vocational Linkages</li>
+                    <li>Family & Client Education</li>
+                    <li>School Readiness (motor, cognitive & social skills)</li>
                 </ul>
             </div>
 
@@ -2018,12 +1975,12 @@ body.menu-open {
                 <img src="assets/home theeapy.jpg" alt="Home and Office Assessment" class="service-image">
                 <div class="service-category">Specialized</div>
                 <h3>Home & Office Assessment</h3>
-                <p>Improving daily living and productivity through accessible environments.</p>
+                <p>Improving accessibility and productivity by removing environmental barriers.</p>
                 <ul class="service-list">
                     <li>Barrier Identification</li>
                     <li>Ergonomic Adjustments</li>
-                    <li>Safety Education</li>
-                    <li>Space Optimization</li>
+                    <li>Safe Practice Training</li>
+                    <li>Follow-Up and Education</li>
                 </ul>
             </div>
         </div>
@@ -2319,48 +2276,7 @@ body.menu-open {
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-  const mobileNav = document.getElementById('mobileNav');
   const body = document.body;
-
-  // ✅ Mobile menu toggle
-  if (mobileMenuToggle && mobileNav) {
-    mobileMenuToggle.addEventListener('click', () => {
-      mobileMenuToggle.classList.toggle('active');
-      mobileNav.classList.toggle('active');
-      body.classList.toggle('menu-open');
-    });
-
-    // ✅ Close on link click inside mobile nav
-    const mobileLinks = mobileNav.querySelectorAll('.nav-links a, .contact-btn');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenuToggle.classList.remove('active');
-        mobileNav.classList.remove('active');
-        body.classList.remove('menu-open');
-      });
-    });
-
-    // ✅ Close if clicking outside
-    document.addEventListener('click', (e) => {
-      if (!mobileNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-        if (mobileNav.classList.contains('active')) {
-          mobileMenuToggle.classList.remove('active');
-          mobileNav.classList.remove('active');
-          body.classList.remove('menu-open');
-        }
-      }
-    });
-
-    // ✅ Reset on window resize
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 992) {
-        mobileMenuToggle.classList.remove('active');
-        mobileNav.classList.remove('active');
-        body.classList.remove('menu-open');
-      }
-    });
-  }
 
   // ✅ Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -2397,7 +2313,6 @@ document.addEventListener('DOMContentLoaded', function () {
         el.style.opacity = '1';
         el.style.transform = 'translateY(0)';
 
-        // Animate service cards
         if (el.classList.contains('services-grid')) {
           const cards = el.querySelectorAll('.service-card');
           cards.forEach((card, index) => {
@@ -2408,7 +2323,6 @@ document.addEventListener('DOMContentLoaded', function () {
           });
         }
 
-        // Animate contact content
         if (el.classList.contains('contact-content')) {
           const heading = el.querySelector('h2');
           const paragraph = el.querySelector('p');
@@ -2430,7 +2344,6 @@ document.addEventListener('DOMContentLoaded', function () {
     rootMargin: '0px 0px -50px 0px'
   });
 
-  // Observe elements for animation
   document.querySelectorAll(
     '.service-card, .process-step, .feature-item, .contact-item, .contact h2, .contact p, .services-grid, .contact-content'
   ).forEach(el => observer.observe(el));
@@ -2501,6 +2414,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
+
 
 </body>
 </html>

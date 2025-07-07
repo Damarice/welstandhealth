@@ -388,220 +388,268 @@ body.menu-open {
             max-width: 600px;
             margin: 0 auto;
         }
+/* Scroll fix globally (recommended) */
+section[id] {
+    scroll-margin-top: 120px; /* Increased to account for larger nav bars */
+}
 
-        /* Services Section */
-        .services {
-            padding: var(--spacing-section) 0;
-            background: var(--bg-white);
-            opacity: 1;
-            visibility: visible;
-        }
+/* Additional scroll fix for specific sections */
+#services {
+    scroll-margin-top: 120px;
+}
 
-        .services-header {
-            text-align: center;
-            margin-bottom: var(--spacing-xl);
-            opacity: 1;
-            visibility: visible;
-        }
+/* Services Section */
+.services {
+    padding: var(--spacing-section) 0;
+    background: var(--bg-white);
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
 
-        .services h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-md);
-            font-weight: 700;
-        }
+/* Extra padding top for services to ensure proper spacing */
+.services::before {
+    content: '';
+    display: block;
+    height: 20px; /* Additional buffer space */
+    margin-top: -20px;
+    visibility: hidden;
+}
 
-        .services-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-medium);
-            max-width: 600px;
-            margin: 0 auto var(--spacing-xl);
-        }
+/* Services Header */
+.services-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding-top: var(--spacing-md); /* Extra padding to prevent nav overlap */
+}
 
-        /* Filter Tabs Styles */
-        .filter-tabs {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-xl);
-            flex-wrap: wrap;
-            opacity: 1;
-            visibility: visible;
-            position: relative;
-            z-index: 10;
-        }
+.services h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
 
-        .filter-tab {
-            padding: var(--spacing-sm) var(--spacing-lg);
-            background: var(--bg-light);
-            border: 2px solid var(--border-color);
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all var(--transition-speed) var(--transition-ease);
-            font-weight: 500;
-            color: var(--text-medium);
-            position: relative;
-            overflow: hidden;
-            opacity: 1;
-            visibility: visible;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 100px;
-            border-color: rgba(65, 143, 147, 0.2);
-        }
+.services-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-medium);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+}
 
-        .filter-tab::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark-color));
-            transition: left var(--transition-speed) var(--transition-ease);
-            z-index: 1;
-        }
+/* Filter Tabs */
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
 
-        .filter-tab span {
-            position: relative;
-            z-index: 2;
-        }
+.filter-tab {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--bg-light);
+    border: 2px solid rgba(65, 143, 147, 0.2);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all var(--transition-speed) var(--transition-ease);
+    font-weight: 500;
+    color: var(--text-medium);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    position: relative;
+    overflow: hidden;
+}
 
-        .filter-tab:hover::before,
-        .filter-tab.active::before {
-            left: 0;
-        }
+.filter-tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark-color));
+    transition: left var(--transition-speed) var(--transition-ease);
+    z-index: 1;
+}
 
-        .filter-tab:hover span,
-        .filter-tab.active span {
-            color: white;
-        }
+.filter-tab span {
+    position: relative;
+    z-index: 2;
+}
 
-        .filter-tab.active {
-            border-color: var(--primary-color);
-            background: var(--primary-color);
-            color: white;
-        }
+.filter-tab:hover::before,
+.filter-tab.active::before {
+    left: 0;
+}
 
-        /* Services Grid Styles */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-md);
-        }
+.filter-tab:hover span,
+.filter-tab.active span {
+    color: white;
+}
 
-        /* Service Card Styles */
-        .service-card {
-            background: var(--bg-white);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-lg);
-            box-shadow: var(--shadow-sm);
-            transition: all var(--transition-speed) var(--transition-ease);
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(20px);
-            min-height: 400px;
-        }
+.filter-tab.active {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+}
 
-        .service-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
 
-        .service-card.hidden {
-            display: none;
-        }
+/* Service Card */
+.service-card {
+    background: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-speed) var(--transition-ease);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    min-height: 400px;
+}
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark-color));
-            transform: scaleX(0);
-            transition: transform var(--transition-speed) var(--transition-ease);
-        }
+.service-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
+.service-card.hidden {
+    display: none;
+}
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-color);
-        }
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark-color));
+    transform: scaleX(0);
+    transition: transform var(--transition-speed) var(--transition-ease);
+}
 
-        /* Service Card Content Styles */
-        .service-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: var(--border-radius-md);
-            margin-bottom: var(--spacing-lg);
-            transition: transform var(--transition-speed) var(--transition-ease);
-        }
+.service-card:hover::before {
+    transform: scaleX(1);
+}
 
-        .service-card:hover .service-image {
-            transform: scale(1.05);
-        }
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
 
-        .service-card h3 {
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-sm);
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
+/* Service Card Content */
+.service-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-lg);
+    transition: transform var(--transition-speed) var(--transition-ease);
+}
 
-        .service-card p {
-            color: var(--text-medium);
-            line-height: 1.6;
-            margin-bottom: var(--spacing-md);
-        }
+.service-card:hover .service-image {
+    transform: scale(1.05);
+}
 
-        .service-list {
-            list-style: none;
-            margin-top: var(--spacing-sm);
-        }
+.service-card h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
 
-        .service-list li {
-            color: var(--text-medium);
-            padding: var(--spacing-xs) 0;
-            position: relative;
-            padding-left: 20px;
-            transition: all var(--transition-speed) var(--transition-ease);
-        }
+.service-card p {
+    color: var(--text-medium);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
 
-        .service-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-weight: bold;
-            font-size: 14px;
-        }
+.service-list {
+    list-style: none;
+    margin-top: var(--spacing-sm);
+    padding-left: 0;
+}
 
-        .service-list li:hover {
-            color: var(--primary-color);
-            transform: translateX(5px);
-        }
+.service-list li {
+    color: var(--text-medium);
+    padding: var(--spacing-xs) 0;
+    position: relative;
+    padding-left: 20px;
+    transition: all var(--transition-speed) var(--transition-ease);
+}
 
-        .service-category {
-            display: inline-block;
-            background: var(--bg-light);
-            color: var(--primary-color);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: var(--spacing-md);
-        }
+.service-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.service-list li:hover {
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.service-category {
+    display: inline-block;
+    background: var(--bg-light);
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Responsive adjustments for different screen sizes */
+@media (max-width: 768px) {
+    section[id] {
+        scroll-margin-top: 80px; /* Smaller nav on mobile */
+    }
+    
+    #services {
+        scroll-margin-top: 80px;
+    }
+    
+    .services-header {
+        padding-top: var(--spacing-sm);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    section[id] {
+        scroll-margin-top: 100px; /* Medium nav on tablet */
+    }
+    
+    #services {
+        scroll-margin-top: 100px;
+    }
+}
+
+@media (min-width: 1025px) {
+    section[id] {
+        scroll-margin-top: 120px; /* Larger nav on desktop */
+    }
+    
+    #services {
+        scroll-margin-top: 120px;
+    }
+}
 
         /* CTA Section */
         .cta-section {
@@ -1071,21 +1119,21 @@ body.menu-open {
                 <img src="assets/comprehensive.jpg" alt="Assessments" class="service-image">
                 <div class="service-category">Assessment</div>
                 <h3>Comprehensive Assessments</h3>
-                <p>Identify client strengths and weaknesses to develop personalized treatment plans.</p>
+                <p>Identify a client’s strengths and weaknesses to guide formulation of proper treatment plans.</p>
                 <ul class="service-list">
-                    <li>Sensory Assessment</li>
-                    <li>Functional Assessment</li>
-                    <li>Developmental Assessment</li>
-                    <li>Cognitive Assessment</li>
+                    <li>Sensory Assessment – Identifies how individuals perceive/respond to sensory input.</li>
+                    <li>Functional Assessment – Assesses daily living abilities and level of assistance needed.</li>
+                    <li>Developmental Assessment – Evaluates motor skills in children and hand injury recovery.</li>
+                    <li>Cognitive Assessment – Examines cognitive strengths and guides tailored interventions.</li>
                 </ul>
             </div>
 
             <!-- Occupational Therapy -->
             <div class="service-card visible" data-category="therapy">
-                <img src="assets/Occupational Therapy.jpg" alt="Occupational Therapy" class="service-image">
+                <img src="assets/4.png" alt="Occupational Therapy" class="service-image">
                 <div class="service-category">Therapy</div>
                 <h3>Occupational Therapy</h3>
-                <p>Helping individuals achieve independence through therapeutic activities.</p>
+                <p>Enabling individuals to achieve independence in daily living through tailored therapeutic care.</p>
                 <ul class="service-list">
                     <li>Early Assessments</li>
                     <li>Intervention Planning</li>
@@ -1096,10 +1144,10 @@ body.menu-open {
 
             <!-- Physiotherapy -->
             <div class="service-card visible" data-category="therapy">
-                <img src="assets/physiotherapy.jpg" alt="Physiotherapy" class="service-image">
+                <img src="assets/phisitherapy.jpg" alt="Physiotherapy" class="service-image">
                 <div class="service-category">Therapy</div>
                 <h3>Physiotherapy</h3>
-                <p>Enhancing mobility and function through manual and exercise therapy techniques.</p>
+                <p>Improving physical function and mobility through personalized therapeutic techniques.</p>
                 <ul class="service-list">
                     <li>Assessment and Diagnosis</li>
                     <li>Manual Therapy</li>
@@ -1110,14 +1158,14 @@ body.menu-open {
 
             <!-- Speech Therapy -->
             <div class="service-card visible" data-category="therapy">
-                <img src="assets/speech.jpg" alt="Speech Therapy" class="service-image">
+                <img src="assets/speech therapy.jpg" alt="Speech Therapy" class="service-image">
                 <div class="service-category">Therapy</div>
                 <h3>Speech & Language Therapy</h3>
-                <p>Helping clients with communication and swallowing difficulties.</p>
+                <p>Helping individuals overcome communication and swallowing challenges.</p>
                 <ul class="service-list">
-                    <li>Speech Therapy (Articulation & Fluency)</li>
-                    <li>Language Therapy (Vocabulary, Grammar, Social Use)</li>
-                    <li>Swallowing Therapy (Eating & Drinking)</li>
+                    <li>Speech Therapy – Improves articulation and fluency.</li>
+                    <li>Language Therapy – Enhances vocabulary, grammar, and social communication.</li>
+                    <li>Swallowing Therapy – Supports safe eating, drinking, and swallowing.</li>
                 </ul>
             </div>
 
@@ -1126,12 +1174,12 @@ body.menu-open {
                 <img src="assets/Hand therapy.jpg" alt="Hand Therapy" class="service-image">
                 <div class="service-category">Specialized</div>
                 <h3>Hand Therapy</h3>
-                <p>Combining physiotherapy and occupational therapy for hand function rehabilitation.</p>
+                <p>Combining physiotherapy and occupational therapy to restore hand function.</p>
                 <ul class="service-list">
-                    <li>Stretching and Mobilization</li>
+                    <li>Stretching and Joint Mobilization</li>
                     <li>Active and Resisted Exercises</li>
+                    <li>Retraining for Daily Tasks</li>
                     <li>Orthosis Fabrication</li>
-                    <li>ADL Training</li>
                 </ul>
             </div>
 
@@ -1140,40 +1188,40 @@ body.menu-open {
                 <img src="assets/sensory intergration.jpg" alt="Sensory Integration" class="service-image">
                 <div class="service-category">Specialized</div>
                 <h3>Sensory Integration</h3>
-                <p>Understanding and addressing sensory processing patterns that affect daily activities.</p>
+                <p>Helping individuals understand and manage sensory input to improve daily functioning.</p>
                 <ul class="service-list">
-                    <li>Sensory Processing Assessment</li>
-                    <li>Intervention Planning</li>
+                    <li>Sensory Processing Evaluation</li>
+                    <li>Customized Interventions</li>
                     <li>Therapeutic Activities</li>
                     <li>Family Education</li>
                 </ul>
             </div>
 
-            <!-- Home Therapy -->
+            <!-- Home Therapy & Programs -->
             <div class="service-card visible" data-category="specialized">
-                <img src="assets/home therapy.jpg" alt="Home Therapy" class="service-image">
+                <img src="assets/pt.jpg" alt="Home Therapy" class="service-image">
                 <div class="service-category">Specialized</div>
                 <h3>Home Therapy & Programs</h3>
-                <p>Therapy services offered at home to enhance comfort and consistency.</p>
+                <p>Delivering therapy in home environments for comfort and consistency.</p>
                 <ul class="service-list">
-                    <li>In-Home Therapy Sessions</li>
-                    <li>Customized Home Programs</li>
+                    <li>In-Home Therapy Services</li>
+                    <li>Tailored Home-Based Exercises</li>
                     <li>Family Guidance</li>
-                    <li>Routine Follow-ups</li>
+                    <li>Functional Independence Support</li>
                 </ul>
             </div>
 
-            <!-- Reintegration -->
+            <!-- Reintegration Support -->
             <div class="service-card visible" data-category="specialized">
-                <img src="assets/reintergration support.jpg" alt="Reintegration Services" class="service-image">
+                <img src="assets/reintergration support.jpg" alt="Reintegration Support" class="service-image">
                 <div class="service-category">Specialized</div>
                 <h3>Reintegration Support</h3>
                 <p>Supporting return to work, school, and society after illness or injury.</p>
                 <ul class="service-list">
-                    <li>Transition Planning</li>
-                    <li>Support Group Connection</li>
-                    <li>Workplace & School Preparation</li>
-                    <li>Family & Vocational Education</li>
+                    <li>Transition Plan Development</li>
+                    <li>Support Group and Vocational Linkages</li>
+                    <li>Family & Client Education</li>
+                    <li>School Readiness (motor, cognitive & social skills)</li>
                 </ul>
             </div>
 
@@ -1182,12 +1230,12 @@ body.menu-open {
                 <img src="assets/home theeapy.jpg" alt="Home and Office Assessment" class="service-image">
                 <div class="service-category">Specialized</div>
                 <h3>Home & Office Assessment</h3>
-                <p>Improving daily living and productivity through accessible environments.</p>
+                <p>Improving accessibility and productivity by removing environmental barriers.</p>
                 <ul class="service-list">
                     <li>Barrier Identification</li>
                     <li>Ergonomic Adjustments</li>
-                    <li>Safety Education</li>
-                    <li>Space Optimization</li>
+                    <li>Safe Practice Training</li>
+                    <li>Follow-Up and Education</li>
                 </ul>
             </div>
         </div>
