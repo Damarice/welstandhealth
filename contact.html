@@ -97,6 +97,53 @@ body {
   color: #3D66C9; /* your primary color */
   text-decoration: none;
 }
+/* Hide desktop nav and show mobile toggle on small screens */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .mobile-menu-toggle span {
+    display: block;
+    height: 3px;
+    background-color: #3D66C9;
+    border-radius: 2px;
+  }
+
+  .nav-mobile {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 1rem;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+
+  .nav-mobile.active {
+    display: flex;
+  }
+
+  .nav-mobile li {
+    margin: 10px 0;
+  }
+
+  .nav-mobile a {
+    color: #000;
+    text-decoration: none;
+  }
+}
 
 
 /* Header */
@@ -778,6 +825,7 @@ body.menu-open {
     </style>
 </head>
 <body>
+<!-- Header -->
 <header>
   <nav class="container">
     <div class="logo">
@@ -786,7 +834,7 @@ body.menu-open {
       </a>
     </div>
 
-    <!-- Desktop Nav -->
+    <!-- Desktop Navigation -->
     <ul class="nav-links nav-desktop">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
@@ -799,28 +847,24 @@ body.menu-open {
       <i class="fas fa-phone"></i> Contact Us
     </a>
 
-    <!-- ✅ Mobile Toggle -->
-    <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-menu-toggle" id="mobileMenuToggle">
       <span></span>
       <span></span>
       <span></span>
-    </button>
+    </div>
   </nav>
-</header>
 
-<!-- ✅ Mobile Menu -->
-<nav id="mobileNav" class="nav-mobile">
-  <ul class="nav-links">
+  <!-- Mobile Navigation -->
+  <ul class="nav-links nav-mobile" id="mobileNav">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About Us</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="process.html">Process</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="contact.html" class="contact-btn">
-    <i class="fas fa-phone"></i> Contact Us
-  </a>
-</nav>
+</header>
+
 
     <section class="page-header">
         <div class="container">
@@ -996,6 +1040,22 @@ document.addEventListener('DOMContentLoaded', function () {
             toggleMenu(false);
         }
     });
+});
+</script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="nxeHQvV4BgUfbXvX71MGe";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+
+  if (mobileMenuToggle && mobileNav) {
+    mobileMenuToggle.addEventListener('click', function () {
+      mobileMenuToggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+    });
+  }
 });
 </script>
 
