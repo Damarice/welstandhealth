@@ -739,11 +739,11 @@ body.menu-open {
             box-shadow: var(--shadow-primary-lg);
         }
 
+
 /* ===== SERVICES SECTION STYLES ===== */
 .services {
     padding: var(--spacing-section) 0;
     background: var(--bg-white);
-    /* Add explicit visibility */
     opacity: 1;
     visibility: visible;
 }
@@ -751,8 +751,7 @@ body.menu-open {
 /* ===== SERVICES HEADER STYLES ===== */
 .services-header {
     text-align: center;
-    margin-bottom: var(--spacing-xl); /* Changed from undefined --spacing-2xl */
-    /* Add explicit visibility */
+    margin-bottom: var(--spacing-xl);
     opacity: 1;
     visibility: visible;
 }
@@ -785,7 +784,6 @@ body.menu-open {
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-xl);
     flex-wrap: wrap;
-    /* Add these properties to ensure visibility */
     opacity: 1;
     visibility: visible;
     position: relative;
@@ -795,8 +793,7 @@ body.menu-open {
 .filter-tab {
     padding: var(--spacing-sm) var(--spacing-lg);
     background: var(--bg-light);
-    /* Fix: Define missing CSS variables or use fallback values */
-    border: 2px solid #e2e8f0; /* Fallback for --border-color */
+    border: 2px solid rgba(65, 143, 147, 0.2);
     border-radius: 50px;
     cursor: pointer;
     transition: all var(--transition-speed) var(--transition-ease);
@@ -804,15 +801,12 @@ body.menu-open {
     color: var(--text-medium);
     position: relative;
     overflow: hidden;
-    /* Add these to ensure visibility */
     opacity: 1;
     visibility: visible;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     min-width: 100px;
-    /* Fix: Remove dependency on undefined --accent-color */
-    border-color: rgba(65, 143, 147, 0.2);
 }
 
 .filter-tab::before {
@@ -822,7 +816,6 @@ body.menu-open {
     left: -100%;
     width: 100%;
     height: 100%;
-    /* Fix: Use defined primary color instead of undefined accent-color */
     background: linear-gradient(135deg, var(--primary-color), var(--primary-dark-color));
     transition: left var(--transition-speed) var(--transition-ease);
     z-index: 1;
@@ -870,6 +863,8 @@ body.menu-open {
     opacity: 0;
     transform: translateY(20px);
     min-height: 400px;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card.visible {
@@ -903,20 +898,37 @@ body.menu-open {
     border-color: var(--primary-color);
 }
 
-/* ===== SERVICE CARD CONTENT STYLES ===== */
-.service-image {
+/* ===== IMAGE SLIDESHOW STYLES ===== */
+.image-slideshow {
+    position: relative;
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    overflow: hidden;
     border-radius: var(--border-radius-md);
     margin-bottom: var(--spacing-lg);
     transition: transform var(--transition-speed) var(--transition-ease);
 }
 
-.service-card:hover .service-image {
+.service-card:hover .image-slideshow {
     transform: scale(1.05);
 }
 
+.image-slideshow .service-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.image-slideshow .service-image.active {
+    opacity: 1;
+}
+
+/* ===== SERVICE CARD CONTENT STYLES ===== */
 .service-card h3 {
     color: var(--primary-color);
     margin-bottom: var(--spacing-sm);
@@ -927,12 +939,14 @@ body.menu-open {
 .service-card p {
     color: var(--text-medium);
     line-height: 1.6;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 0; /* ✅ Removed space between paragraph and list */
+    flex-grow: 1;
 }
 
 .service-list {
     list-style: none;
     margin-top: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
 }
 
 .service-list li {
@@ -973,31 +987,31 @@ body.menu-open {
     .container {
         padding: 0 16px;
     }
-    
+
     .services {
         padding: 50px 0;
     }
-    
+
     .services-header {
         margin-bottom: 24px;
     }
-    
+
     .services-grid {
         grid-template-columns: 1fr;
         gap: 20px;
         margin-top: 20px;
     }
-    
+
     .service-card {
         padding: 20px;
         min-height: auto;
     }
-    
-    .service-image {
+
+    .image-slideshow {
         height: 180px;
         margin-bottom: 16px;
     }
-    
+
     .filter-tabs {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -1007,47 +1021,47 @@ body.menu-open {
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     .filter-tab {
         padding: 12px 16px;
         font-size: 0.9rem;
         text-align: center;
     }
-    
+
     .services h2 {
         font-size: 2rem;
         margin-bottom: 8px;
     }
-    
+
     .services-subtitle {
         font-size: 1rem;
         margin-bottom: 24px;
     }
-    
+
     .service-category {
         margin-bottom: 12px;
     }
-    
+
     .service-card h3 {
         margin-bottom: 12px;
         font-size: 1.4rem;
     }
-    
+
     .service-card p {
-        margin-bottom: 16px;
+        margin-bottom: 0;
         font-size: 0.95rem;
     }
-    
+
     .service-list {
         margin-top: 12px;
     }
-    
+
     .service-list li {
         padding: 6px 0;
         padding-left: 18px;
         font-size: 0.9rem;
     }
-    
+
     .service-list li:before {
         font-size: 12px;
     }
@@ -1058,67 +1072,67 @@ body.menu-open {
     .container {
         padding: 0 12px;
     }
-    
+
     .services {
         padding: 40px 0;
     }
-    
+
     .services-header {
         margin-bottom: 20px;
     }
-    
+
     .services-grid {
         gap: 16px;
         margin-top: 16px;
     }
-    
+
     .service-card {
         padding: 16px;
     }
-    
-    .service-image {
+
+    .image-slideshow {
         height: 160px;
         margin-bottom: 12px;
     }
-    
+
     .filter-tabs {
         grid-template-columns: 1fr;
         gap: 6px;
         margin-bottom: 20px;
         max-width: 280px;
     }
-    
+
     .filter-tab {
         padding: 10px 14px;
         font-size: 0.85rem;
     }
-    
+
     .services h2 {
         font-size: 1.6rem;
         margin-bottom: 6px;
     }
-    
+
     .services-subtitle {
         font-size: 0.9rem;
         margin-bottom: 20px;
     }
-    
+
     .service-card h3 {
         font-size: 1.2rem;
         margin-bottom: 10px;
     }
-    
+
     .service-card p {
         font-size: 0.9rem;
-        margin-bottom: 12px;
+        margin-bottom: 0;
     }
-    
+
     .service-list li {
         padding: 4px 0;
         padding-left: 16px;
         font-size: 0.85rem;
     }
-    
+
     .service-list li:before {
         font-size: 11px;
     }
@@ -1140,20 +1154,13 @@ body.menu-open {
     }
 }
 
-/* Add missing CSS variables that are referenced but not defined */
-:root {
-    /* Add these missing variables */
-    --border-color: #e2e8f0;
-    --accent-color: #367c80; /* Using primary-dark-color as fallback */
-    --spacing-2xl: 3rem; /* Referenced in services-header */
-}
-
 /* Make sure the filter tabs container is visible */
 .services .filter-tabs {
     display: flex !important;
     opacity: 1 !important;
     visibility: visible !important;
 }
+
 /* Process Section - Minimal Card Layout */
 .process {
     padding: var(--spacing-xl) 0;
@@ -2079,128 +2086,148 @@ body.menu-open {
         </div>
 
         <div class="services-grid">
-            <!-- Assessments -->
+
+            <!-- Comprehensive Assessments -->
             <div class="service-card visible" data-category="assessment">
-                <img src="assets/comprehensive.jpg" alt="Assessments" class="service-image">
+                <div class="image-slideshow">
+                    <img src="assets/Comprehensive assessment2.webp" alt="Comprehensive Assessments Image 1" class="service-image active">
+                    <img src="assets/Comprehensive assessment.webp" alt="Comprehensive Assessments Image 2" class="service-image">
+                </div>
                 <div class="service-category">Assessment</div>
                 <h3>Comprehensive Assessments</h3>
-                <p>Identify a client’s strengths and weaknesses to guide formulation of proper treatment plans.</p>
+                <p>Identifying client strengths and needs to guide therapy planning.</p>
                 <ul class="service-list">
-                    <li>Sensory Assessment – Identifies how individuals perceive/respond to sensory input.</li>
-                    <li>Functional Assessment – Assesses daily living abilities and level of assistance needed.</li>
-                    <li>Developmental Assessment – Evaluates motor skills in children and hand injury recovery.</li>
-                    <li>Cognitive Assessment – Examines cognitive strengths and guides tailored interventions.</li>
+                    <li><strong>Sensory Assessment</strong> – Understands how a person reacts to sensory input.</li>
+                    <li><strong>Functional Assessment</strong> – Evaluates ability to perform daily activities.</li>
+                    <li><strong>Cognitive Assessment</strong> – Assesses memory, attention, and problem-solving.</li>
                 </ul>
             </div>
 
             <!-- Occupational Therapy -->
             <div class="service-card visible" data-category="therapy">
-                <img src="assets/4.png" alt="Occupational Therapy" class="service-image">
+                <div class="image-slideshow">
+                    <img src="assets/Occupational therapy1.jpg" alt="Occupational Therapy Image 1" class="service-image active">
+                    <img src="assets/Occupational therapy2.jpg" alt="Occupational Therapy Image 2" class="service-image">
+                </div>
                 <div class="service-category">Therapy</div>
                 <h3>Occupational Therapy</h3>
-                <p>Enabling individuals to achieve independence in daily living through tailored therapeutic care.</p>
+                <p>Helping individuals gain independence in everyday activities.</p>
                 <ul class="service-list">
-                    <li>Early Assessments</li>
-                    <li>Intervention Planning</li>
-                    <li>Therapeutic Activities</li>
-                    <li>Education and Training</li>
+                    <li><strong>Early Assessments</strong> – Identifies areas needing intervention.</li>
+                    <li><strong>Intervention Planning</strong> – Creates personalized therapy goals.</li>
+                    <li><strong>Training & Support</strong> – Builds life skills for home and work.</li>
                 </ul>
             </div>
 
             <!-- Physiotherapy -->
             <div class="service-card visible" data-category="therapy">
-                <img src="assets/phisitherapy.jpg" alt="Physiotherapy" class="service-image">
+                <div class="image-slideshow">
+                    <img src="assets/Physiotherapy1.jpg" alt="Physiotherapy Image 1" class="service-image active">
+                    <img src="assets/physiotherapy2.jpg" alt="Physiotherapy Image 2" class="service-image">
+                </div>
                 <div class="service-category">Therapy</div>
                 <h3>Physiotherapy</h3>
-                <p>Improving physical function and mobility through personalized therapeutic techniques.</p>
+                <p>Improving movement, strength, and physical function.</p>
                 <ul class="service-list">
-                    <li>Assessment and Diagnosis</li>
-                    <li>Manual Therapy</li>
-                    <li>Exercise Therapy</li>
-                    <li>Education and Advice</li>
+                    <li><strong>Manual Therapy</strong> – Uses hands-on techniques for pain relief.</li>
+                    <li><strong>Exercise Therapy</strong> – Strengthens muscles and mobility.</li>
+                    <li><strong>Education & Advice</strong> – Guides long-term physical wellness.</li>
                 </ul>
             </div>
 
-            <!-- Speech Therapy -->
+            <!-- Speech & Language Therapy -->
             <div class="service-card visible" data-category="therapy">
-                <img src="assets/speech therapy.jpg" alt="Speech Therapy" class="service-image">
+                <div class="image-slideshow">
+                    <img src="assets/speech therapy.jpg" alt="Speech Therapy Image 1" class="service-image active">
+                    <img src="assets/speech 1.jpeg" alt="Speech Therapy Image 2" class="service-image">
+                </div>
                 <div class="service-category">Therapy</div>
                 <h3>Speech & Language Therapy</h3>
                 <p>Helping individuals overcome communication and swallowing challenges.</p>
                 <ul class="service-list">
-                    <li>Speech Therapy – Improves articulation and fluency.</li>
-                    <li>Language Therapy – Enhances vocabulary, grammar, and social communication.</li>
-                    <li>Swallowing Therapy – Supports safe eating, drinking, and swallowing.</li>
+                    <li><strong>Speech Therapy</strong> – Improves articulation and fluency.</li>
+                    <li><strong>Language Therapy</strong> – Enhances vocabulary, grammar, and social communication.</li>
+                    <li><strong>Swallowing Therapy</strong> – Supports safe eating, drinking, and swallowing.</li>
                 </ul>
             </div>
 
             <!-- Hand Therapy -->
             <div class="service-card visible" data-category="specialized">
-                <img src="assets/Hand therapy.jpg" alt="Hand Therapy" class="service-image">
+                <div class="image-slideshow">
+                    <img src="assets/Hand therapy.jpg" alt="Hand Therapy Image 1" class="service-image active">
+                    <img src="assets/comprehensive.jpg" alt="Hand Therapy Image 2" class="service-image">
+                </div>
                 <div class="service-category">Specialized</div>
                 <h3>Hand Therapy</h3>
-                <p>Combining physiotherapy and occupational therapy to restore hand function.</p>
+                <p>Restoring hand function after injury or surgery.</p>
                 <ul class="service-list">
-                    <li>Stretching and Joint Mobilization</li>
-                    <li>Active and Resisted Exercises</li>
-                    <li>Retraining for Daily Tasks</li>
-                    <li>Orthosis Fabrication</li>
+                    <li><strong>Stretching & Mobilization</strong> – Improves flexibility and range.</li>
+                    <li><strong>Strengthening Exercises</strong> – Rebuilds hand control and grip.</li>
+                    <li><strong>Daily Task Training</strong> – Helps relearn functional use of hands.</li>
                 </ul>
             </div>
 
             <!-- Sensory Integration -->
             <div class="service-card visible" data-category="specialized">
-                <img src="assets/sensory intergration.jpg" alt="Sensory Integration" class="service-image">
+                <div class="image-slideshow">
+                    <img src="assets/Sensory integration 2.jpg" alt="Sensory Integration Image 1" class="service-image active">
+                    <img src="assets/Sensory integration 1.jpg" alt="Sensory Integration Image 2" class="service-image">
+                </div>
                 <div class="service-category">Specialized</div>
                 <h3>Sensory Integration</h3>
-                <p>Helping individuals understand and manage sensory input to improve daily functioning.</p>
+                <p>Helping individuals manage sensory input for better daily functioning.</p>
                 <ul class="service-list">
-                    <li>Sensory Processing Evaluation</li>
-                    <li>Customized Interventions</li>
-                    <li>Therapeutic Activities</li>
-                    <li>Family Education</li>
+                    <li><strong>Sensory Evaluation</strong> – Identifies sensory processing issues.</li>
+                    <li><strong>Therapeutic Activities</strong> – Supports regulation and coordination.</li>
+                    <li><strong>Family Education</strong> – Teaches strategies for support at home.</li>
                 </ul>
             </div>
 
-            <!-- Home Therapy & Programs -->
+            <!-- Home Therapy -->
             <div class="service-card visible" data-category="specialized">
-                <img src="assets/pt.jpg" alt="Home Therapy" class="service-image">
+                <div class="image-slideshow">
+                    <img src="assets/pt.jpg" alt="Home Therapy Image 1" class="service-image active">
+                    <img src="assets/home 1.jpg" alt="Home Therapy Image 2" class="service-image">
+                </div>
                 <div class="service-category">Specialized</div>
                 <h3>Home Therapy & Programs</h3>
-                <p>Delivering therapy in home environments for comfort and consistency.</p>
+                <p>Delivering therapy services in the comfort of home.</p>
                 <ul class="service-list">
-                    <li>In-Home Therapy Services</li>
-                    <li>Tailored Home-Based Exercises</li>
-                    <li>Family Guidance</li>
-                    <li>Functional Independence Support</li>
+                    <li><strong>In-Home Visits</strong> – Provide one-on-one therapy at home.</li>
+                    <li><strong>Custom Exercises</strong> – Tailored to the individual’s environment.</li>
+                    <li><strong>Family Support</strong> – Guides caregivers through therapy routines.</li>
                 </ul>
             </div>
 
             <!-- Reintegration Support -->
             <div class="service-card visible" data-category="specialized">
-                <img src="assets/reintergration support.jpg" alt="Reintegration Support" class="service-image">
+                <div class="image-slideshow">
+                    <img src="assets/support1.jpg" alt="Reintegration Support Image 1" class="service-image active">
+                    <img src="assets/support2.jpg" alt="Reintegration Support Image 2" class="service-image">
+                </div>
                 <div class="service-category">Specialized</div>
                 <h3>Reintegration Support</h3>
-                <p>Supporting return to work, school, and society after illness or injury.</p>
+                <p>Supporting return to school, work, and social life after recovery.</p>
                 <ul class="service-list">
-                    <li>Transition Plan Development</li>
-                    <li>Support Group and Vocational Linkages</li>
-                    <li>Family & Client Education</li>
-                    <li>School Readiness (motor, cognitive & social skills)</li>
+                    <li><strong>Transition Planning</strong> – Prepares individuals for next life steps.</li>
+                    <li><strong>Support Networks</strong> – Connects with peer or vocational groups.</li>
+                    <li><strong>Skill Readiness</strong> – Builds academic, work, and social skills.</li>
                 </ul>
             </div>
 
             <!-- Home & Office Assessment -->
             <div class="service-card visible" data-category="specialized">
-                <img src="assets/home theeapy.jpg" alt="Home and Office Assessment" class="service-image">
+                <div class="image-slideshow">
+                    <img src="assets/office.jpg" alt="Home and Office Assessment Image 1" class="service-image active">
+                    <img src="assets/offic1.jpg" alt="Home and Office Assessment Image 2" class="service-image">
+                </div>
                 <div class="service-category">Specialized</div>
                 <h3>Home & Office Assessment</h3>
-                <p>Improving accessibility and productivity by removing environmental barriers.</p>
+                <p>Making living and workspaces safe and accessible.</p>
                 <ul class="service-list">
-                    <li>Barrier Identification</li>
-                    <li>Ergonomic Adjustments</li>
-                    <li>Safe Practice Training</li>
-                    <li>Follow-Up and Education</li>
+                    <li><strong>Barrier Evaluation</strong> – Identifies physical and ergonomic risks.</li>
+                    <li><strong>Workstation Adjustments</strong> – Improves comfort and posture.</li>
+                    <li><strong>Safety Training</strong> – Promotes injury prevention and good habits.</li>
                 </ul>
             </div>
         </div>
@@ -2208,50 +2235,68 @@ body.menu-open {
 </section>
 
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterTabs = document.querySelectorAll('.filter-tab');
-            const serviceCards = document.querySelectorAll('.service-card');
-            
-            filterTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const category = this.getAttribute('data-category');
-                    
-                    // Update active tab
-                    filterTabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Filter cards with proper grid reflow
-                    serviceCards.forEach((card, index) => {
-                        const cardCategory = card.getAttribute('data-category');
-                        
-                        if (category === 'all' || cardCategory === category) {
-                            card.classList.remove('hidden');
-                            card.classList.add('visible');
-                            
-                            // Add staggered animation delay
-                            setTimeout(() => {
-                                card.style.animationDelay = `${index * 0.1}s`;
-                                card.classList.add('fade-in');
-                            }, 50);
-                        } else {
-                            card.classList.remove('visible', 'fade-in');
-                            card.classList.add('hidden');
-                            card.style.animationDelay = '0s';
-                        }
-                    });
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+
+                // Update active tab
+                filterTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter cards with proper grid reflow
+                serviceCards.forEach((card, index) => {
+                    const cardCategory = card.getAttribute('data-category');
+
+                    if (category === 'all' || cardCategory === category) {
+                        card.classList.remove('hidden');
+                        card.classList.add('visible');
+
+                        // Add staggered animation delay
+                        setTimeout(() => {
+                            card.style.animationDelay = `${index * 0.1}s`;
+                            card.classList.add('fade-in');
+                        }, 50);
+                    } else {
+                        card.classList.remove('visible', 'fade-in');
+                        card.classList.add('hidden');
+                        card.style.animationDelay = '0s';
+                    }
                 });
             });
-            
-            // Initialize all cards as visible on load
-            serviceCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.animationDelay = `${index * 0.1}s`;
-                    card.classList.add('fade-in');
-                }, 100);
-            });
         });
-    </script>
+
+        // Initialize all cards as visible on load
+        serviceCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('fade-in');
+            }, 100);
+        });
+
+        // Image Slideshow functionality
+        const serviceSlideshows = document.querySelectorAll('.image-slideshow');
+
+        serviceSlideshows.forEach(slideshow => {
+            const images = slideshow.querySelectorAll('.service-image');
+            let currentImageIndex = 0;
+
+            // Function to show the next image
+            const showNextImage = () => {
+                images[currentImageIndex].classList.remove('active');
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                images[currentImageIndex].classList.add('active');
+            };
+
+            // Set interval for slideshow (e.g., every 3 seconds)
+            setInterval(showNextImage, 3000); // Change image every 3 seconds
+        });
+    });
+</script>
     <section class="process" id="process">
         <div class="container">
             <h2 class="animate-fadeInUp">Simple <span class="highlight">Steps</span> To Better Health</h2>
